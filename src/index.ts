@@ -14,3 +14,12 @@ export { default as Logger } from './repositories/Logger/Logger.js';
 
 // env vars
 export { default as env } from './security/env.js';
+
+// Types
+export type { EncryptData } from './helpers/Cryptor.js';
+export type { ParseType } from './helpers/Data.js';
+export type {
+  EnvList, EnvConfig, ReservedEnvVar, EnvVar,
+} from './helpers/Env.js';
+export type { GatewayInterface, AuthArgs } from './repositories/Gateway/Gateway.js';
+export type { ILogger } from './repositories/Logger/Logger.js';

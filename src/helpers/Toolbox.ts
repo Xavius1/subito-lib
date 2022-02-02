@@ -1,13 +1,13 @@
 class Toolbox {
-  static async asyncForEach(array: Array<any>, callback: Function) {
+  static async asyncForEach<T = any>(array: T[], callback: Function) {
     for (let index = 0; index < array.length; index++) { // eslint-disable-line no-plusplus
       await callback(array[index], index, array); // eslint-disable-line no-await-in-loop
     }
   }
 
-  static intersection(arr1: Array<any>, arr2: Array<any>) {
-    let shortest = arr1;
-    let to = arr2;
+  static intersection<T1 = any, T2 = any>(arr1: T1[], arr2: T2[]) {
+    let shortest: any = arr1;
+    let to: any = arr2;
     if (arr1.length > arr2.length) {
       shortest = arr2;
       to = arr1;

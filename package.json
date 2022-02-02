@@ -1,7 +1,7 @@
 {
   "name": "subito-lib",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.16",
+  "description": "Library for subito micro services",
   "main": "./dist/subito-lib.js",
   "typings": "./dist/subito-lib.d.ts",
   "type": "module",
@@ -9,7 +9,7 @@
     "bundle": "webpack --config=webpack.config.js",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "build-doc": "api-extractor run --local --verbose",
-    "build": "./node_modules/.bin/tsc -p tsconfig.json",
+    "build": "./node_modules/.bin/tsc -p tsconfig.build.json",
     "build-dev": "npm run build && NODE_ENV=development node --inspect lib/index.js",
     "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
     "start": "npm run build && NODE_ENV=production node lib/index.js"

@@ -5,7 +5,7 @@ import Data from '../../helpers/Data.js';
 import e from '../../security/env.js';
 import Thrower from '../../helpers/Thrower.js';
 
-interface AuthArgs {
+export interface AuthArgs {
   service: string,
   secret: string,
 }

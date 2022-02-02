@@ -7,6 +7,14 @@
 import { Headers as Headers_2 } from 'graphql-request/dist/types.dom';
 import jwt from 'jsonwebtoken';
 
+// @public (undocumented)
+export interface AuthArgs {
+    // (undocumented)
+    secret: string;
+    // (undocumented)
+    service: string;
+}
+
 // @public
 export class Calculator {
     static addRate(value: number, rate: number): number;
@@ -38,8 +46,6 @@ export class Cryptor {
     constructor(key: string, version?: string);
     // (undocumented)
     decrypt(data: string): string;
-    // Warning: (ae-forgotten-export) The symbol "EncryptData" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     encrypt(data: any): EncryptData;
 }
@@ -49,8 +55,6 @@ export class Data {
     constructor(value: any);
     // (undocumented)
     NaNtoNull(): any;
-    // Warning: (ae-forgotten-export) The symbol "ParseType" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     parseType(type: ParseType): any;
     // (undocumented)
@@ -61,18 +65,36 @@ export class Data {
 export const depreciate: (oldMethod: string, newMethod: string) => void;
 
 // @public (undocumented)
+export type EncryptData = {
+    data: string;
+    api: string;
+};
+
+// @public (undocumented)
 export class Env {
-    // Warning: (ae-forgotten-export) The symbol "EnvList" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     static getAll(list: EnvList): any;
+    // (undocumented)
+    static newSecret(name: string): EnvVar;
 }
 
 // @public (undocumented)
 export const env: any;
 
-// Warning: (ae-forgotten-export) The symbol "GatewayInterface" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type EnvConfig = {
+    allow?: any[];
+    type?: ParseType;
+    defaultValue: any;
+    scope?: 'all' | string[];
+};
+
+// @public (undocumented)
+export type EnvList = (EnvVar | ReservedEnvVar)[];
+
+// @public (undocumented)
+export type EnvVar = [string, EnvConfig];
+
 // @public (undocumented)
 export class Gateway implements GatewayInterface {
     constructor({ endpoint, headers, }: {
@@ -82,8 +104,6 @@ export class Gateway implements GatewayInterface {
             'x-client-version': string;
         } | undefined;
     });
-    // Warning: (ae-forgotten-export) The symbol "AuthArgs" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     args: AuthArgs;
     // (undocumented)
@@ -97,10 +117,46 @@ export class Gateway implements GatewayInterface {
     setHeaders(headers: Headers_2): void;
 }
 
+// @public (undocumented)
+export interface GatewayInterface {
+    // (undocumented)
+    args: AuthArgs;
+    // (undocumented)
+    auth: Function;
+    // (undocumented)
+    execute: Function;
+    // (undocumented)
+    setHeaders: Function;
+}
+
+// @public (undocumented)
+export interface ILogger {
+    // (undocumented)
+    newAccess(code: LoggerCode, message: string, input?: any, context?: any): any;
+    // Warning: (ae-forgotten-export) The symbol "LoggerCode" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    newError(code: LoggerCode, message: string, input?: any, context?: any): any;
+    // (undocumented)
+    newInfo(message: string, context: any): any;
+    // (undocumented)
+    newWarning(code: LoggerCode, message: string, input?: any, context?: any): any;
+    // (undocumented)
+    setContext(context: any): ILogger;
+    // (undocumented)
+    setGateway(gateway: GatewayInterface): ILogger;
+}
+
 // Warning: (ae-forgotten-export) The symbol "Logger" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export const Logger: Logger_2;
+
+// @public (undocumented)
+export type ParseType = 'Array' | 'Bool' | 'Date' | 'Float' | 'Int' | 'secret' | undefined;
+
+// @public (undocumented)
+export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV')];
 
 // @public (undocumented)
 export class Thrower {
@@ -125,9 +181,9 @@ export class Token {
 // @public (undocumented)
 export class Toolbox {
     // (undocumented)
-    static asyncForEach(array: Array<any>, callback: Function): Promise<void>;
+    static asyncForEach<T = any>(array: T[], callback: Function): Promise<void>;
     // (undocumented)
-    static intersection(arr1: Array<any>, arr2: Array<any>): any[];
+    static intersection<T1 = any, T2 = any>(arr1: T1[], arr2: T2[]): any[];
     // (undocumented)
     static replaceJsonKeyPart(obj: any, target: string, replacement: string): any;
 }

@@ -1,13 +1,23 @@
-# These are some examples of commonly ignored file patterns.
-# You should customize this list as applicable to your project.
-# Learn more about .gitignore:
-#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+src/
+temp/
+lib/
+etc/
+doc/
+.eslintrc
+.gitattributes
+.npmrc
+.nvmrc
+api-extractor.json
+jest.config.cjs
+nodemon.json
+tsconfig.build.json
+tsconfig.json
+tsdoc-metadata.json
+webpack.config.js
 
 # Node artifact files
 node_modules/
-dist/
-lib/
-temp/
+# dist/
 
 # Jest coverage files
 coverage/

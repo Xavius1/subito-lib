@@ -10,7 +10,16 @@ const getTraceStack = function getTraceStack() {
 
 type LoggerCode = string | number | null
 
-export class Logger {
+export interface ILogger {
+  setGateway(gateway: GatewayInterface): ILogger
+  setContext(context: any): ILogger
+  newInfo(message: string, context: any): any
+  newError(code: LoggerCode, message: string, input?: any, context?: any): any
+  newWarning(code: LoggerCode, message: string, input?: any, context?: any): any
+  newAccess(code: LoggerCode, message: string, input?: any, context?: any): any
+}
+
+export class Logger implements ILogger {
   private gateway?: GatewayInterface;
 
   private trigger?: string;
@@ -24,6 +33,7 @@ export class Logger {
   setGateway(gateway: GatewayInterface) {
     this.gateway = gateway;
     this.trigger = this.gateway?.args?.service || 'unknown';
+    return this;
   }
 
   setContext(context: any) {
@@ -31,26 +41,40 @@ export class Logger {
     return this;
   }
 
-  async save(query: string, code: LoggerCode, message: string, input: any, {
-    headers, viewer, app, gateway,
+  static consoleLog(message: string) {
+    console.log('[INFO] Gateway unavailable at this time.'); // eslint-disable-line no-console
+    console.log(message); // eslint-disable-line no-console
+  }
+
+  /**
+   * @internal
+   */
+  private async save(query: string, code: LoggerCode, message: string, input: any, {
+    headers, viewer, app, gateway: gatewayName,
   }: GatewayContext = {}) {
     try {
-      if (headers) {
-        this.gateway?.setHeaders(headers);
+      const { gateway, trigger } = this;
+      if (!gateway) {
+        Logger.consoleLog(`[${code}] ${message}`);
+        return null;
       }
-      return this.gateway?.execute(query, {
+
+      if (headers) {
+        gateway?.setHeaders(headers);
+      }
+
+      return gateway?.execute(query, {
         code,
         message,
         input,
-        trigger: this.trigger,
+        trigger,
         trace: getTraceStack(),
         context: {
-          headers, viewer, app, gateway,
+          headers, viewer, app, gatewayName,
         },
       });
-    } catch (e) {
-      console.log('[INFO] Gateway unavailable at this time.'); // eslint-disable-line no-console
-      console.log(`[${code}] ${message}`); // eslint-disable-line no-console
+    } catch (err) {
+      Logger.consoleLog(`[${code}] ${message}`);
     }
 
     return null;

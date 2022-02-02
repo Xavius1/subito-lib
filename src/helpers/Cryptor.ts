@@ -9,7 +9,7 @@ const ivHashes: IvHashes = {
   '1.0': e.CRYPTO_IV_HASH,
 };
 
-type EncryptData = {
+export type EncryptData = {
   data: string,
   api: string
 }

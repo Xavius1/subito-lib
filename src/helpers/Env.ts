@@ -4,8 +4,14 @@ import Checker from './Checker.js';
 import Data from './Data.js';
 import Thrower from './Thrower.js';
 import type { ParseType } from './Data.js';
+import Logger from '../repositories/Logger/Logger.js';
 
 const checker = new Checker(true);
+
+const isStrictEnvMode = function isStrictEnvMode() {
+  const { SUBITO_STRICT_ENV_MODE } = process.env; // eslint-disable-line node/no-process-env
+  return new Data(SUBITO_STRICT_ENV_MODE).parseType('Bool');
+};
 
 const ensureScope = function ensureScope(scope: string[] | 'all' | undefined) {
   if (Array.isArray(scope)
@@ -23,33 +29,39 @@ const ensureSecretEnv = function ensureSecretEnv({ type, defaultValue }: SecretE
 };
 
 type DefineEnv = { name: string, defaultValue: any, scope?: (string)[] | 'all' }
-const defineEnv = function defineEnv({ name, defaultValue, scope }: DefineEnv) {
-  let env = process.env[name]; // eslint-disable-line node/no-process-env
-  if (!env) {
+const defineEnv = function defineEnv(args: DefineEnv) {
+  const { name, defaultValue, scope } = args;
+  let value = process.env[name]; // eslint-disable-line node/no-process-env
+  if (!value) {
     const { APP_ENV } = process.env; // eslint-disable-line node/no-process-env
     if (
-      defaultValue === undefined
+      isStrictEnvMode()
+      || defaultValue === undefined
       || (scope === 'all' && ['staging', 'production'].includes(APP_ENV))
       || (scope !== 'all' && scope && !scope.includes(APP_ENV))
     ) {
-      checker.isExists(env, name);
+      checker.isExists(value, name);
     }
-    env = defaultValue;
+    value = defaultValue;
+    Logger.newWarning('WARN_ENV', `Default value ${name}=${value} because the env var ${name}
+    is not set in your environment, set the env var to remove this warning.`, args);
   }
 
-  return env;
+  return value;
 };
 
-type EnvOptions = {
-  allow?: any[], type?: ParseType, defaultValue?: any, scope?: 'all' | string[],
+export type EnvConfig = {
+  allow?: any[], type?: ParseType, defaultValue: any, scope?: 'all' | string[],
   }
 
-type EnvList = [string, EnvOptions][];
+export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV')];
+export type EnvVar = [string, EnvConfig];
+export type EnvList = (EnvVar | ReservedEnvVar)[];
 
 class Env {
   private static get(name: string, {
     allow, type, defaultValue, scope = 'all',
-  }: EnvOptions = {}) {
+  }: EnvConfig) {
     ensureScope(scope);
     ensureSecretEnv({ type, defaultValue });
 
@@ -67,6 +79,17 @@ class Env {
     return value;
   }
 
+  private static getEnvConfig(name: string, defaultConfig: any) {
+    switch (name) {
+      case 'APP_ENV':
+        return { defaultValue: 'local', allow: ['local', 'current', 'develop', 'integration', 'staging', 'production'] };
+      case 'NODE_ENV':
+        return { defaultValue: 'development', allow: ['development', 'test', 'production'] };
+      default:
+        return defaultConfig;
+    }
+  }
+
   static getAll(list: EnvList): any {
     const envs: any = {
       _recipe: list,
@@ -77,8 +100,9 @@ class Env {
     };
     const errors: any = [];
 
-    list.forEach(([name, config = {}]) => {
+    list.forEach(([name, defaultConfig = {}]) => {
       try {
+        const config = Env.getEnvConfig(name, defaultConfig);
         envs[name] = Env.get(name, config);
         const {
           defaultValue, allow, type, scope,
@@ -105,6 +129,10 @@ class Env {
     }
 
     return envs;
+  }
+
+  static newSecret(name: string): EnvVar {
+    return [name.toUpperCase(), { defaultValue: 'dev', type: 'secret' }];
   }
 }
 

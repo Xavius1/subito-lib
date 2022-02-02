@@ -1,1 +1,0 @@
-{"version":3,"file":"Thrower.d.ts","sourceRoot":"","sources":["../../src/helpers/Thrower.ts"],"names":[],"mappings":"AAAA,cAAM,OAAO;IACX,MAAM,CAAC,OAAO,CAAC,OAAO,EAAE,MAAM,GAAG,KAAK;IAItC,MAAM,CAAC,SAAS,IAAI,KAAK;IAIzB,MAAM,CAAC,YAAY,IAAI,KAAK;CAG7B;AAED,eAAe,OAAO,CAAC"}
