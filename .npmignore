@@ -1,3 +1,4 @@
+.github/
 src/
 temp/
 lib/
@@ -10,10 +11,8 @@ doc/
 api-extractor.json
 jest.config.cjs
 nodemon.json
-tsconfig.build.json
-tsconfig.json
+tsconfig.*
 tsdoc-metadata.json
-webpack.config.js
 
 # Node artifact files
 node_modules/
