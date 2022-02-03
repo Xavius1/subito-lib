@@ -6,6 +6,7 @@ etc/
 doc/
 .eslintrc
 .gitattributes
+.np-config.json
 .npmrc
 .nvmrc
 api-extractor.json
