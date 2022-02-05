@@ -47,7 +47,7 @@
     "webpack-cli": "4.9.2"
   },
   "dependencies": {
-    "graphql-request": "^3.7.0",
+    "graphql-request": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1"
   }
