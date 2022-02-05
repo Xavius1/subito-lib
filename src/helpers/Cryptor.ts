@@ -38,7 +38,7 @@ class Cryptor {
   }
 
   encrypt(data: any): EncryptData {
-    const cipher = crypto.createCipheriv('aes256', this.key, this.resizedIV);
+    const cipher = crypto.createCipheriv('aes-256-gcm', this.key, this.resizedIV);
     let theCipher = cipher.update(data, 'binary', 'hex');
     theCipher += cipher.final('hex');
     return {
@@ -48,7 +48,7 @@ class Cryptor {
   }
 
   decrypt(data: string): string {
-    const decipher = crypto.createDecipheriv('aes256', this.key, this.resizedIV);
+    const decipher = crypto.createDecipheriv('aes-256-gcm', this.key, this.resizedIV);
     let str = decipher.update(data, 'hex', 'binary');
     str += decipher.final('binary');
     return str;
