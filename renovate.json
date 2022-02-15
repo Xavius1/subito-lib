@@ -1,5 +1,19 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ],
+  "automergeType": "branch",
+  "reviewers": [
+    "Xavius1"
   ]
 }
