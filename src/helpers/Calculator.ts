@@ -91,7 +91,7 @@ class Calculator {
    */
   static round(value: number, decimals?: number) {
     let precision = 2;
-    if (decimals && decimals >= 0) {
+    if (decimals !== undefined && decimals >= 0) {
       precision = decimals;
     }
     return +(`${Math.round(Number(`${value}e${precision}`))}e-${precision}`);
