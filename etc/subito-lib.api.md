@@ -188,6 +188,4 @@ export class Toolbox {
     static replaceJsonKeyPart(obj: any, target: string, replacement: string): any;
 }
 
-// (No @packageDocumentation comment for this package)
-
 ```

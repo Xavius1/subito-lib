@@ -162,7 +162,7 @@
   },
   "kind": "Package",
   "canonicalReference": "subito-lib!",
-  "docComment": "",
+  "docComment": "/**\n * Library for subito micro services\n *\n * @packageDocumentation\n */\n",
   "name": "subito-lib",
   "preserveMemberOrder": false,
   "members": [

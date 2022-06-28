@@ -1,3 +1,9 @@
+/**
+ * Library for subito micro services
+ *
+ * @packageDocumentation
+ */
+
 export { default as Calculator } from './helpers/Calculator';
 export { default as Checker } from './helpers/Checker';
 export { default as Cryptor } from './helpers/Cryptor';
