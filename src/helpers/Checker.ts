@@ -10,7 +10,7 @@ class Checker {
   }
 
   isArray(arr: Array<any>): boolean {
-    if (!this.isArray(arr)) {
+    if (!Array.isArray(arr)) {
       this.send('ERR_NEED_ARRAY');
     }
 
