@@ -25,4 +25,44 @@ describe('helpers/Env', () => {
         ],
       });
   });
+  // Default secret more than 5 chars
+  test('it should throw when a secret with default value more than 5 characters', () => {
+    expect(() => {
+      Env.getAll([
+        ['FAKE_ENV_VAR_TEST_ENVFILE2', { defaultValue: 'retest', type: 'secret' }],
+      ]);
+    }).toThrow();
+  });
+  // Throw when no default
+  test('it should throw when no env & no default', () => {
+    expect(() => {
+      Env.getAll([
+        ['FAKE_ENV_VAR_TEST', { defaultValue: undefined }],
+      ]);
+    }).toThrow();
+  });
+  // Test fallback
+  test('it should return', () => {
+    expect(
+      Env.getAll([
+        ['FAKE_ENV_VAR_TEST', { defaultValue: 'whatever', fallback: 'NODE_ENV' }],
+      ]),
+    ).toMatchObject({
+      _fallbacks: {
+        FAKE_ENV_VAR_TEST: 'NODE_ENV',
+      },
+    });
+  });
+  // NODE_ENV config
+  test('it should return NODE_ENV', () => {
+    expect(
+      Env.getAll([
+        ['NODE_ENV'],
+      ]),
+    ).toMatchObject({
+      _allowedValues: {
+        NODE_ENV: ['development', 'test', 'production'],
+      },
+    });
+  });
 });
