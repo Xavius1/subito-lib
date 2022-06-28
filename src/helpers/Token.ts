@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import e from '../security/env.js';
+import e from '../security/env';
 
 interface Data {
   [key: string]: any

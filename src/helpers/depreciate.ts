@@ -1,4 +1,4 @@
-import e from '../security/env.js';
+import e from '../security/env';
 
 const depreciate = function warnAboutDepreciateCalledMethod(oldMethod: string, newMethod: string) {
   if (e.APP_ENV !== 'production') {

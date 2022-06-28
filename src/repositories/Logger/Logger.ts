@@ -1,8 +1,8 @@
-import LOG_ACCESS from './queries/LOG_ACCESS.js';
-import LOG_INFO from './queries/LOG_INFO.js';
-import LOG_ERROR from './queries/LOG_ERROR.js';
-import LOG_WARNING from './queries/LOG_WARNING.js';
-import type { GatewayInterface, GatewayContext } from '../Gateway/Gateway.js';
+import LOG_ACCESS from './queries/LOG_ACCESS';
+import LOG_INFO from './queries/LOG_INFO';
+import LOG_ERROR from './queries/LOG_ERROR';
+import LOG_WARNING from './queries/LOG_WARNING';
+import type { GatewayInterface, GatewayContext } from '../Gateway/Gateway';
 
 const getTraceStack = function getTraceStack() {
   return Error().stack?.replace(/^Error\n/, '');

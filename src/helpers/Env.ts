@@ -1,7 +1,7 @@
-import Checker from './Checker.js';
-import Data from './Data.js';
-import Thrower from './Thrower.js';
-import type { ParseType } from './Data.js';
+import Checker from './Checker';
+import Data from './Data';
+import Thrower from './Thrower';
+import type { ParseType } from './Data';
 
 const checker = new Checker(true);
 

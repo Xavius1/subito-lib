@@ -1,4 +1,4 @@
-import e from './env.js';
+import e from './env';
 
 describe('env.js', () => {
   // INTERNAL_GATEWAY

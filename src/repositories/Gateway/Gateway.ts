@@ -1,9 +1,9 @@
 import { GraphQLClient } from 'graphql-request';
 import { Headers } from 'graphql-request/dist/types.dom';
-import SERVICE_AUTH from './queries/SERVICE_AUTH.js';
-import Data from '../../helpers/Data.js';
-import e from '../../security/env.js';
-import Thrower from '../../helpers/Thrower.js';
+import SERVICE_AUTH from './queries/SERVICE_AUTH';
+import Data from '../../helpers/Data';
+import e from '../../security/env';
+import Thrower from '../../helpers/Thrower';
 
 export interface AuthArgs {
   service: string,
