@@ -32,7 +32,7 @@ class Data {
 
   ucfirst() {
     const { value } = this;
-    return value.charAt(0).toUpperCase() + value.substr(1).toLowerCase();
+    return value.charAt(0).toUpperCase() + value.substring(1).toLowerCase();
   }
 
   NaNtoNull() {
