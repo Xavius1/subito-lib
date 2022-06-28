@@ -86,7 +86,7 @@ export type EnvConfig = {
     allow?: any[];
     type?: ParseType;
     defaultValue: any;
-    scope?: 'all' | string[];
+    fallback?: string;
 };
 
 // @public (undocumented)
