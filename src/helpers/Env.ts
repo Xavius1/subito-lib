@@ -1,25 +1,9 @@
-/* eslint-disable no-underscore-dangle */
-
 import Checker from './Checker.js';
 import Data from './Data.js';
 import Thrower from './Thrower.js';
 import type { ParseType } from './Data.js';
-import Logger from '../repositories/Logger/Logger.js';
 
 const checker = new Checker(true);
-
-const isStrictEnvMode = function isStrictEnvMode() {
-  const { SUBITO_STRICT_ENV_MODE } = process.env; // eslint-disable-line node/no-process-env
-  return new Data(SUBITO_STRICT_ENV_MODE).parseType('Bool');
-};
-
-const ensureScope = function ensureScope(scope: string[] | 'all' | undefined) {
-  if (Array.isArray(scope)
-  && (scope.includes('staging') || scope.includes('production'))
-  ) {
-    Thrower.generic('DEFAULT_ENV_SCOPE_NOT_ALLOWED');
-  }
-};
 
 type SecretEnv = { type?: string, defaultValue: string }
 const ensureSecretEnv = function ensureSecretEnv({ type, defaultValue }: SecretEnv) {
@@ -28,30 +12,28 @@ const ensureSecretEnv = function ensureSecretEnv({ type, defaultValue }: SecretE
   }
 };
 
-type DefineEnv = { name: string, defaultValue: any, scope?: (string)[] | 'all' }
+type DefineEnv = { name: string, defaultValue: any, fallback?: string }
 const defineEnv = function defineEnv(args: DefineEnv) {
-  const { name, defaultValue, scope } = args;
+  const { name, defaultValue, fallback } = args;
   let value = process.env[name]; // eslint-disable-line node/no-process-env
+
+  const { APP_ENV } = process.env; // eslint-disable-line node/no-process-env
+  if (!value && fallback && !['staging', 'production'].includes(APP_ENV)) {
+    value = process.env[fallback]; // eslint-disable-line node/no-process-env
+  }
+
   if (!value) {
-    const { APP_ENV } = process.env; // eslint-disable-line node/no-process-env
-    if (
-      isStrictEnvMode()
-      || defaultValue === undefined
-      || (scope === 'all' && ['staging', 'production'].includes(APP_ENV))
-      || (scope !== 'all' && scope && !scope.includes(APP_ENV))
-    ) {
+    if (defaultValue === undefined || ['staging', 'production'].includes(APP_ENV)) {
       checker.isExists(value, name);
     }
     value = defaultValue;
-    Logger.newWarning('WARN_ENV', `Default value ${name}=${value} because the env var ${name}
-    is not set in your environment, set the env var to remove this warning.`, args);
   }
 
   return value;
 };
 
 export type EnvConfig = {
-  allow?: any[], type?: ParseType, defaultValue: any, scope?: 'all' | string[],
+  allow?: any[], type?: ParseType, defaultValue: any, fallback?: string,
   }
 
 export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV')];
@@ -60,12 +42,11 @@ export type EnvList = (EnvVar | ReservedEnvVar)[];
 
 class Env {
   private static get(name: string, {
-    allow, type, defaultValue, scope = 'all',
+    allow, type, defaultValue, fallback,
   }: EnvConfig) {
-    ensureScope(scope);
     ensureSecretEnv({ type, defaultValue });
 
-    const env = defineEnv({ name, defaultValue, scope });
+    const env = defineEnv({ name, defaultValue, fallback });
 
     const data = new Data(env);
     const value = data.parseType(type);
@@ -95,7 +76,7 @@ class Env {
       _recipe: list,
       _defaultValues: {},
       _allowedValues: {},
-      _scopes: {},
+      _fallbacks: {},
       _types: {},
     };
     const errors: any = [];
@@ -105,19 +86,19 @@ class Env {
         const config = Env.getEnvConfig(name, defaultConfig);
         envs[name] = Env.get(name, config);
         const {
-          defaultValue, allow, type, scope,
+          defaultValue, allow, type, fallback,
         } = config;
         if (defaultValue || defaultValue === false) {
-          envs._defaultValues[name] = defaultValue;
+          envs._defaultValues[name] = defaultValue; // eslint-disable-line no-underscore-dangle
         }
         if (allow) {
-          envs._allowedValues[name] = allow;
+          envs._allowedValues[name] = allow; // eslint-disable-line no-underscore-dangle
         }
         if (type) {
-          envs._types[name] = type;
+          envs._types[name] = type; // eslint-disable-line no-underscore-dangle
         }
-        if (scope) {
-          envs._scopes[name] = scope;
+        if (fallback) {
+          envs._fallbacks[name] = fallback; // eslint-disable-line no-underscore-dangle
         }
       } catch (err: any) {
         errors.push(err.message);
