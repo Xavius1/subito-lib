@@ -42,16 +42,20 @@ class Cryptor {
     let theCipher = cipher.update(data, 'binary', 'hex');
     theCipher += cipher.final('hex');
     return {
-      data: theCipher,
+      data: `${theCipher}_${cipher.getAuthTag().toString('hex')}_${this.resizedIV.toString('hex')}`,
       api: this.version,
     };
   }
 
   decrypt(data: string): string {
-    const decipher = crypto.createDecipheriv('aes-256-gcm', this.key, this.resizedIV);
-    let str = decipher.update(data, 'hex', 'binary');
-    str += decipher.final('binary');
-    return str;
+    const [str, tag, iv] = data.split('_');
+    const decipher = crypto.createDecipheriv('aes-256-gcm', this.key, Buffer.from(iv, 'hex'));
+    decipher.setAuthTag(Buffer.from(tag, 'hex'));
+
+    let res = decipher.update(str, 'hex', 'binary');
+    res += decipher.final('binary');
+
+    return res;
   }
 }
 
