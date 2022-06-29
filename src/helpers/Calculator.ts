@@ -1,5 +1,5 @@
 /**
- * Class use to make some usual math stuff
+ * Class used to make some usual math stuff
  * Like round a number or apply/remove a rate to a price
  * @public
  */

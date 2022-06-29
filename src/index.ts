@@ -4,12 +4,14 @@
  * @packageDocumentation
  */
 
+// Helpers
 export { default as Calculator } from './helpers/Calculator';
 export { default as Checker } from './helpers/Checker';
 export { default as Cryptor } from './helpers/Cryptor';
 export { default as Data } from './helpers/Data';
 export { default as depreciate } from './helpers/depreciate';
 export { default as Env } from './helpers/Env';
+export { default as OpenTelemetry } from './helpers/OpenTelemetry';
 export { default as Thrower } from './helpers/Thrower';
 export { default as Token } from './helpers/Token';
 export { default as Toolbox } from './helpers/Toolbox';
