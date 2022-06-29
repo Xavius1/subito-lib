@@ -9,10 +9,13 @@
         "patch"
       ],
       "matchCurrentVersion": "!/^0/",
-      "automerge": true
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
     }
   ],
-  "automergeType": "branch",
+  "platformAutomerge": true,
+  "automergeType": "pr",
   "reviewers": [
     "Xavius1"
   ]
