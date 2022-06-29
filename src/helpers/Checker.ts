@@ -11,26 +11,31 @@ class Checker {
 
   isArray(arr: Array<any>): boolean {
     if (!Array.isArray(arr)) {
-      this.send('ERR_NEED_ARRAY');
+      return this.send('ERR_NEED_ARRAY');
     }
 
     return true;
   }
 
-  isEmpty(arr: Array<any>): boolean {
-    this.isArray(arr);
+  isNotEmpty(arr: any[]): boolean {
+    if (!this.isArray(arr)) {
+      return false;
+    }
+
     if (arr.length === 0) {
-      this.send('ERR_EMPTY_ARRAY');
+      return this.send('ERR_EMPTY_ARRAY');
     }
 
     return true;
   }
 
   isEquals(obj: any, value: any): boolean {
-    this.isExists(obj);
-    this.isExists(value);
+    if (!this.isExists(obj) || !this.isExists(value)) {
+      return false;
+    }
+
     if (obj !== value) {
-      this.send('ERR_NEED_OBJ_MATCH_VALUE');
+      return this.send('ERR_NEED_OBJ_MATCH_VALUE');
     }
 
     return true;
@@ -38,16 +43,19 @@ class Checker {
 
   isExists(obj: any, name: string = ''): boolean {
     if (!obj) {
-      this.send(`ERR_NEED_NOT_NULL_OBJ ${name}`);
+      return this.send(`ERR_NEED_NOT_NULL_OBJ ${name}`);
     }
 
     return true;
   }
 
-  isIn(arr: Array<any>, value: any, name: string = '') {
-    this.isArray(arr);
+  isIn(arr: any[], value: any, name: string = '') {
+    if (!this.isArray(arr)) {
+      return false;
+    }
+
     if (!arr.includes(value)) {
-      this.send(`ERR_VALUE_NOT_IN_GROUP ${name}/${value}`);
+      return this.send(`ERR_VALUE_NOT_IN_GROUP ${name}/${value}`);
     }
 
     return true;
@@ -55,7 +63,7 @@ class Checker {
 
   isInstanceOf(obj: any, instance: any): boolean {
     if (!(obj instanceof instance)) {
-      this.send('ERR_NEED_SPECIFIC_INSTANCE_TYPE');
+      return this.send('ERR_NEED_SPECIFIC_INSTANCE_TYPE');
     }
 
     return true;
