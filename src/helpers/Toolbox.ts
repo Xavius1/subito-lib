@@ -1,3 +1,5 @@
+import Checker from './Checker';
+
 class Toolbox {
   static async asyncForEach<T = any>(array: T[], callback: Function) {
     for (let index = 0; index < array.length; index++) { // eslint-disable-line no-plusplus
@@ -6,6 +8,10 @@ class Toolbox {
   }
 
   static intersection<T1 = any, T2 = any>(arr1: T1[], arr2: T2[]) {
+    const checker = new Checker();
+    checker.isArray(arr1);
+    checker.isArray(arr2);
+
     let shortest: any = arr1;
     let to: any = arr2;
     if (arr1.length > arr2.length) {
