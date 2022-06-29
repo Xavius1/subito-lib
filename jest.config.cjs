@@ -15,6 +15,6 @@ module.exports = {
   },
   coveragePathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/src/OpenTelemetry.ts', // None way to tst it at this time
+    '<rootDir>/src/helpers/OpenTelemetry.ts', // None way to tst it at this time
   ],
 };
