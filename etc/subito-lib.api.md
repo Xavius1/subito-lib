@@ -30,15 +30,15 @@ export class Checker {
     // (undocumented)
     isArray(arr: Array<any>): boolean;
     // (undocumented)
-    isEmpty(arr: Array<any>): boolean;
-    // (undocumented)
     isEquals(obj: any, value: any): boolean;
     // (undocumented)
     isExists(obj: any, name?: string): boolean;
     // (undocumented)
-    isIn(arr: Array<any>, value: any, name?: string): boolean;
+    isIn(arr: any[], value: any, name?: string): boolean;
     // (undocumented)
     isInstanceOf(obj: any, instance: any): boolean;
+    // (undocumented)
+    isNotEmpty(arr: any[]): boolean;
 }
 
 // @public (undocumented)
