@@ -13,4 +13,8 @@ module.exports = {
       lines: 36, // TODO: 100
     },
   },
+  coveragePathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/src/OpenTelemetry.js', // None way to tst it at this time
+  ],
 };
