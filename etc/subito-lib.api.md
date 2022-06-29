@@ -152,6 +152,13 @@ export interface ILogger {
 // @public (undocumented)
 export const Logger: Logger_2;
 
+// @public
+export class OpenTelemetry {
+    // Warning: (ae-forgotten-export) The symbol "OTProps" needs to be exported by the entry point index.d.ts
+    constructor(props: OTProps);
+    record(): void;
+}
+
 // @public (undocumented)
 export type ParseType = 'Array' | 'Bool' | 'Date' | 'Float' | 'Int' | 'secret' | undefined;
 

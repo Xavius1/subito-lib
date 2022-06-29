@@ -246,7 +246,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Calculator:class",
-          "docComment": "/**\n * Class use to make some usual math stuff Like round a number or apply/remove a rate to a price\n *\n * @public\n */\n",
+          "docComment": "/**\n * Class used to make some usual math stuff Like round a number or apply/remove a rate to a price\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2461,6 +2461,86 @@
             "startIndex": 1,
             "endIndex": 2
           }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "subito-lib!OpenTelemetry:class",
+          "docComment": "/**\n * Class used to send trace & metrics to an open telemetry backend (only Jaeger for now) Need to be instanciate before anything else\n *\n * @example\n * ```\n * new OpenTelemetry({\n *  type: 'api',\n *   name: 'api-user',\n * }).record();\n * ```\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class OpenTelemetry "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "OpenTelemetry",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "subito-lib!OpenTelemetry:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `OpenTelemetry` class\n *\n * @param props - Params used to setup the exporter\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(props: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OTProps",
+                  "canonicalReference": "subito-lib!OTProps:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "props",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!OpenTelemetry#record:member(1)",
+              "docComment": "/**\n * Method used to start to export telemetry\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "record(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "name": "record"
+            }
+          ],
+          "implementsTokenRanges": []
         },
         {
           "kind": "TypeAlias",
