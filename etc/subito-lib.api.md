@@ -163,7 +163,7 @@ export class OpenTelemetry {
 export type ParseType = 'Array' | 'Bool' | 'Date' | 'Float' | 'Int' | 'secret' | undefined;
 
 // @public (undocumented)
-export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV')];
+export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'PWD')];
 
 // @public (undocumented)
 export class Thrower {

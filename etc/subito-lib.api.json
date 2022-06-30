@@ -2568,7 +2568,7 @@
             },
             {
               "kind": "Content",
-              "text": "[('APP_ENV' | 'NODE_ENV')]"
+              "text": "[('APP_ENV' | 'NODE_ENV' | 'PWD')]"
             },
             {
               "kind": "Content",
