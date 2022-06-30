@@ -36,7 +36,7 @@ export type EnvConfig = {
   allow?: any[], type?: ParseType, defaultValue: any, fallback?: string,
   }
 
-export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV')];
+export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'PWD')];
 export type EnvVar = [string, EnvConfig];
 export type EnvList = (EnvVar | ReservedEnvVar)[];
 
