@@ -66,6 +66,8 @@ class Env {
         return { defaultValue: 'local', allow: ['local', 'current', 'develop', 'integration', 'staging', 'production'] };
       case 'NODE_ENV':
         return { defaultValue: 'development', allow: ['development', 'test', 'production'] };
+      case 'PWD':
+        return { defaultValue: '/app' };
       default:
         return defaultConfig;
     }
