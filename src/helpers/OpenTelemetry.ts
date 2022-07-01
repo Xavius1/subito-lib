@@ -16,7 +16,7 @@ type OTExporter = {
 export type OTProps = {
   name: string
   type: string
-  exporter: OTExporter
+  exporter?: OTExporter
 }
 
 /**
