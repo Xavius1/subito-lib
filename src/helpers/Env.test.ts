@@ -1,16 +1,28 @@
-import Env from './Env';
+import Env, { EnvType } from './Env';
 
 describe('helpers/Env', () => {
   // APP_ENV
   test('APP_ENV value should be', () => {
-    expect(Env.getAll([['APP_ENV']])) // eslint-disable-line no-underscore-dangle
+    expect(Env.getAll([['APP_ENV']]))
       .toMatchObject({ APP_ENV: 'local' });
+  });
+  // PWD
+  test('PWD value should be', () => {
+    expect(Env.getAll([['PWD']])._defaultValues.PWD) // eslint-disable-line no-underscore-dangle
+      .toBe('/app');
+  });
+  // Parse data
+  test('Env.getAll() should parse data', () => {
+    expect(Env.getAll([
+      Env.newVar('FAKE_ENV_VAR_TEST_INT', { defaultValue: '3', parseType: 'Int' }),
+    ]).FAKE_ENV_VAR_TEST_INT)
+      .toBe(3);
   });
   // Env.getAll
   test('Env.getAll() should get', () => {
     expect(Env.getAll([
-      ['FAKE_ENV_VAR_TEST_ENVFILE', { defaultValue: 'test' }],
-      ['FAKE_ENV_VAR_TEST_ENVFILE2', { defaultValue: 'retest' }],
+      Env.newVar('FAKE_ENV_VAR_TEST_ENVFILE', { defaultValue: 'test' }),
+      Env.newVar('FAKE_ENV_VAR_TEST_ENVFILE2', { defaultValue: 'retest' }),
     ]))
       .toMatchObject({
         FAKE_ENV_VAR_TEST_ENVFILE: 'test',
@@ -29,7 +41,7 @@ describe('helpers/Env', () => {
   test('it should throw when a secret with default value more than 5 characters', () => {
     expect(() => {
       Env.getAll([
-        ['FAKE_ENV_VAR_TEST_ENVFILE2', { defaultValue: 'retest', type: 'secret' }],
+        ['FAKE_ENV_VAR_TEST_ENVFILE2', { defaultValue: 'retest', type: EnvType.SECRET }],
       ]);
     }).toThrow();
   });
@@ -37,7 +49,7 @@ describe('helpers/Env', () => {
   test('it should throw when no env & no default', () => {
     expect(() => {
       Env.getAll([
-        ['FAKE_ENV_VAR_TEST', { defaultValue: undefined }],
+        Env.newVar('FAKE_ENV_VAR_TEST', { defaultValue: undefined }),
       ]);
     }).toThrow();
   });
@@ -45,7 +57,7 @@ describe('helpers/Env', () => {
   test('it should return', () => {
     expect(
       Env.getAll([
-        ['FAKE_ENV_VAR_TEST', { defaultValue: 'whatever', fallback: 'NODE_ENV' }],
+        Env.newVar('FAKE_ENV_VAR_TEST', { defaultValue: 'whatever', fallback: 'NODE_ENV' }),
       ]),
     ).toMatchObject({
       _fallbacks: {
