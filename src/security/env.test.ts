@@ -1,3 +1,4 @@
+import { EnvType } from '../helpers/Env';
 import e from './env';
 
 describe('env.js', () => {
@@ -16,14 +17,29 @@ describe('env.js', () => {
     expect(e._defaultValues.TOKEN_VALIDITY_DEV) // eslint-disable-line no-underscore-dangle
       .toBe(1);
   });
+  // DEFAULT_TIMEZONE
+  test('DEFAULT_TIMEZONE default value should be', () => {
+    expect(e._defaultValues.DEFAULT_TIMEZONE) // eslint-disable-line no-underscore-dangle
+      .toBe('Europe/Paris');
+  });
+  // DEFAULT_LOCALE
+  test('DEFAULT_LOCALE default value should be', () => {
+    expect(e._defaultValues.DEFAULT_LOCALE) // eslint-disable-line no-underscore-dangle
+      .toBe('fr');
+  });
+  // DEFAULT_DATE_FORMAT
+  test('DEFAULT_DATE_FORMAT default value should be', () => {
+    expect(e._defaultValues.DEFAULT_DATE_FORMAT) // eslint-disable-line no-underscore-dangle
+      .toBe('YYYY-MM-DDTHH:mm:ss.SSS');
+  });
   // CRYPTO_IV_HASH
   test('CRYPTO_IV_HASH type should be', () => {
     expect(e._types.CRYPTO_IV_HASH) // eslint-disable-line no-underscore-dangle
-      .toBe('secret');
+      .toBe(EnvType.SECRET);
   });
   // JWT_KEY
   test('JWT_KEY type should be', () => {
     expect(e._types.JWT_KEY) // eslint-disable-line no-underscore-dangle
-      .toBe('secret');
+      .toBe(EnvType.SECRET);
   });
 });
