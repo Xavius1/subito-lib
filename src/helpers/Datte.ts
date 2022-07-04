@@ -19,7 +19,7 @@ class Datte {
     locale = e.DEFAULT_LOCALE,
     tz = e.DEFAULT_TIMEZONE,
   }: { date?: string, locale?: string, tz?: string } = { }) {
-    momenttz.tz.setDefault(e.DEFAULT_TIMEZONE);
+    momenttz.tz.setDefault('UTC');
     this.tz = tz;
     this.locale = locale;
     this.utc = momenttz.utc(date);
@@ -44,7 +44,8 @@ class Datte {
    * @public
    */
   toLocalDate() {
-    const d = new Date(this.utc.tz(this.tz).format('YYYY-MM-DDTHH:mm:ss.SSS'));
+    const u = this.utc.tz(this.tz);
+    const d = new Date(Date.UTC(u.year(), u.month(), u.date(), u.hour(), u.minute(), u.second()));
     return d;
   }
 
@@ -74,7 +75,7 @@ class Datte {
   toLocalString(format: string = e.DEFAULT_DATE_FORMAT) {
     moment.locale(this.locale);
     // return new Date(this.utc.tz(this.tz).format('YYYY-MM-DDTHH:mm:ss.SSS'));
-    return moment.utc(
+    return moment(
       new Date(this.utc.tz(this.tz).format('YYYY-MM-DDTHH:mm:ss.SSS')),
     ).format(format);
   }
