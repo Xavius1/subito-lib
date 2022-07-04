@@ -26,7 +26,7 @@ class Datte {
   }
 
   /**
-   * Get the Date object
+   * Get the Date object (utc)
    *
    * @returns
    *
@@ -37,7 +37,7 @@ class Datte {
   }
 
   /**
-   * Get the local Date object
+   * Get the local Date object (with timezone applied)
    *
    * @returns
    *

@@ -1342,7 +1342,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Env:class",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1356,7 +1356,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Env.getAll:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Get a list of env vars\n *\n * @param list - An array of env configs\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1403,8 +1403,73 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "subito-lib!Env.newEnv:member(1)",
+              "docComment": "/**\n * Get the config of a new environment dependent variable\n *\n * @param name - The name of the new var\n *\n * @param config - Custom env config\n *\n * @returns \n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static newEnv(name: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnvCustomConfig",
+                  "canonicalReference": "subito-lib!EnvCustomConfig:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnvVar",
+                  "canonicalReference": "subito-lib!EnvVar:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "name",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "config",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "name": "newEnv"
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "subito-lib!Env.newSecret:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Get the config of a new secret env\n *\n * @param name - The name of the new secret env\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1448,6 +1513,71 @@
               ],
               "isOptional": false,
               "name": "newSecret"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!Env.newVar:member(1)",
+              "docComment": "/**\n * Get the config of a new non-environment dependent variable\n *\n * @param name - The name of the new var\n *\n * @param config - Custom env config\n *\n * @returns \n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static newVar(name: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", config: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnvCustomConfig",
+                  "canonicalReference": "subito-lib!EnvCustomConfig:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EnvVar",
+                  "canonicalReference": "subito-lib!EnvVar:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "name",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "config",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "name": "newVar"
             }
           ],
           "implementsTokenRanges": []
@@ -1485,7 +1615,16 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    allow?: any[];\n    type?: "
+              "text": "{\n    allow?: any[];\n    type: "
+            },
+            {
+              "kind": "Reference",
+              "text": "EnvType",
+              "canonicalReference": "subito-lib!EnvType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    parseType?: "
             },
             {
               "kind": "Reference",
@@ -1505,7 +1644,7 @@
           "name": "EnvConfig",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 4
+            "endIndex": 6
           }
         },
         {

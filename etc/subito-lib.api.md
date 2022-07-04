@@ -72,10 +72,11 @@ export type EncryptData = {
 
 // @public (undocumented)
 export class Env {
-    // (undocumented)
     static getAll(list: EnvList): any;
-    // (undocumented)
+    // Warning: (ae-forgotten-export) The symbol "EnvCustomConfig" needs to be exported by the entry point index.d.ts
+    static newEnv(name: string, config: EnvCustomConfig): EnvVar;
     static newSecret(name: string): EnvVar;
+    static newVar(name: string, config: EnvCustomConfig): EnvVar;
 }
 
 // @public (undocumented)
@@ -84,7 +85,8 @@ export const env: any;
 // @public (undocumented)
 export type EnvConfig = {
     allow?: any[];
-    type?: ParseType;
+    type: EnvType;
+    parseType?: ParseType;
     defaultValue: any;
     fallback?: string;
 };
@@ -194,5 +196,9 @@ export class Toolbox {
     // (undocumented)
     static replaceJsonKeyPart(obj: any, target: string, replacement: string): any;
 }
+
+// Warnings were encountered during analysis:
+//
+// src/helpers/Env.ts:64:18 - (ae-forgotten-export) The symbol "EnvType" needs to be exported by the entry point index.d.ts
 
 ```
