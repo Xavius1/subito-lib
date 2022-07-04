@@ -6,6 +6,7 @@
 
 import { Headers as Headers_2 } from 'graphql-request/dist/types.dom';
 import jwt from 'jsonwebtoken';
+import { Moment } from 'moment-timezone';
 
 // @public (undocumented)
 export interface AuthArgs {
@@ -59,6 +60,25 @@ export class Data {
     parseType(type: ParseType): any;
     // (undocumented)
     ucfirst(): any;
+}
+
+// @public
+export class Datte {
+    constructor({ date, locale, tz, }?: {
+        date?: string;
+        locale?: string;
+        tz?: string;
+    });
+    // (undocumented)
+    protected locale: string | null;
+    toDate(): Date;
+    toLocalDate(): Date;
+    toLocalString(format?: string): any;
+    toString(format?: string): any;
+    // (undocumented)
+    protected tz: string;
+    // (undocumented)
+    utc: Moment;
 }
 
 // @public (undocumented)
