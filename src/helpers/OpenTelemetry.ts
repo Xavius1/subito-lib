@@ -4,6 +4,7 @@ import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
 import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express';
 import { GraphQLInstrumentation } from '@opentelemetry/instrumentation-graphql';
+import { AmqplibInstrumentation } from '@opentelemetry/instrumentation-amqplib';
 import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
 // import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
@@ -69,6 +70,11 @@ class OpenTelemetry {
             depth: 10,
           }),
         );
+        instrumentations.push(new AmqplibInstrumentation());
+        break;
+
+      case 'consumer':
+        instrumentations.push(new AmqplibInstrumentation());
         break;
 
       default:
