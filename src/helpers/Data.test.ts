@@ -26,11 +26,6 @@ describe('Data.parseType()', () => {
     expect(data.parseType('Array')).toEqual(['test', 'test2', 'test3']);
   });
 
-  test('it should get a date', () => {
-    const data = new Data('2021-02-10 19:30:00');
-    expect(data.parseType('Date')).toStrictEqual(new Date('2021-02-10 19:30:00'));
-  });
-
   test('it should get false', () => {
     const data = new Data('false');
     expect(data.parseType('Bool')).toBe(false);

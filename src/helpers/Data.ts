@@ -1,6 +1,4 @@
-import moment from 'moment';
-
-export type ParseType = 'Array' | 'Bool' | 'Date' | 'Float' | 'Int' | 'secret' | undefined;
+export type ParseType = 'Array' | 'Bool' | 'Float' | 'Int' | 'secret' | undefined;
 
 class Data {
   private value: any;
@@ -11,14 +9,12 @@ class Data {
 
   parseType(type: ParseType): any {
     const { value } = this;
-
+    // const tmpVar = null;
     switch (type) {
       case 'Array':
         return value.split(',');
       case 'Bool':
         return (value === true || value === 'true');
-      case 'Date':
-        return moment(value).toDate();
       case 'Float':
         this.value = parseFloat(value);
         return this.NaNtoNull();

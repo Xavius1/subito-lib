@@ -1,6 +1,6 @@
 import Checker from './Checker';
-import Data from './Data';
 import Thrower from './Thrower';
+import Data from './Data';
 import type { ParseType } from './Data';
 
 const checker = new Checker(true);
@@ -60,19 +60,70 @@ export type EnvCustomConfig = {
   allow?: any[], parseType?: ParseType, defaultValue: any, fallback?: string,
 }
 
+export type AliasCustomConfig = {
+  allow?: any[], defaultValue: any, fallback?: string,
+}
+
 export type EnvConfig = {
   allow?: any[], type: EnvType, parseType?: ParseType, defaultValue: any, fallback?: string,
 }
 
-export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'PWD')];
-export type EnvVar = [string, EnvConfig];
-export type EnvList = (EnvVar | ReservedEnvVar)[];
+export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'FORCE_DEBUG' | 'PWD')];
+export type EnvRecipe = [string, EnvConfig];
+export type EnvRecipes = EnvRecipe[];
+
+export type EnvVars = {
+  _recipes: EnvRecipes,
+  _defaultValues: { [key: string]: any },
+  _allowedValues: { [key: string]: any },
+  _fallbacks: { [key: string]: string },
+  _types: { [key: string]: EnvType },
+  _parseTypes: { [key: string]: ParseType },
+  [key: string]: any,
+}
 
 /**
  * @public
  */
 class Env {
-  private static get(name: string, {
+  protected vars: EnvVars = {
+    _recipes: [],
+    _defaultValues: {},
+    _allowedValues: {},
+    _fallbacks: {},
+    _types: {},
+    _parseTypes: {},
+  };
+
+  protected reservedList: EnvRecipes = [
+    ['NODE_ENV', { type: EnvType.ENV, defaultValue: 'development', allow: ['development', 'test', 'production'] }],
+    ['APP_ENV', { type: EnvType.ENV, defaultValue: 'local', allow: ['local', 'current', 'develop', 'integration', 'staging', 'production'] }],
+    /**
+     * Use this var to activate debug mode on your micro services.
+     * It also use by subito packages.
+     */
+    ['FORCE_DEBUG', { type: EnvType.VAR, defaultValue: false, parseType: 'Bool' }],
+    /**
+     * If PWD is not set by NodeJS then it will be initialized by Env.
+     */
+    ['PWD', { type: EnvType.ENV, defaultValue: '/app' }],
+    /**
+     * Your micro services should use an internal endpoint instead of the client endpoint.
+     * Use this var to get the endpoint address.
+     */
+    ['INTERNAL_GRAPHQL_ENDPOINT', { type: EnvType.ENV, defaultValue: 'http://graphql-endpoint/' }],
+    /**
+     * All your micro services should have an auth token when calling the api endpoint.
+     * Use this var to ask a new token.
+     * You have to deploy a micro service to handle new service tokens.
+     *
+     * To be more secure, you can also use one auth key per micro service.
+     * In that case, you will need to sync auth keyes with your auth micro service.
+     */
+    ['SERVICE_AUTH_KEY', { type: EnvType.SECRET, defaultValue: 'dev' }],
+  ];
+
+  protected static get(name: string, {
     allow, type, parseType, defaultValue, fallback,
   }: EnvConfig) {
     ensureSecretEnv({ type, defaultValue });
@@ -81,8 +132,11 @@ class Env {
       name, type, defaultValue, fallback,
     });
 
-    const data = new Data(env);
-    const value = data.parseType(parseType);
+    let data = null;
+    let value = null;
+    data = new Data(env);
+    value = data.parseType(parseType);
+
     if (parseType !== 'Bool') {
       checker.isExists(value, name);
     }
@@ -94,72 +148,66 @@ class Env {
   }
 
   /**
-   * @internal
-   */
-  private static getEnvConfig(name: string, defaultConfig: any) {
-    switch (name) {
-      case 'APP_ENV':
-        return { defaultValue: 'local', allow: ['local', 'current', 'develop', 'integration', 'staging', 'production'] };
-      case 'NODE_ENV':
-        return { defaultValue: 'development', allow: ['development', 'test', 'production'] };
-      case 'PWD':
-        return { defaultValue: '/app' };
-      default:
-        return defaultConfig;
-    }
-  }
-
-  /**
    * Get a list of env vars
    *
-   * @param list - An array of env configs
+   * @param recipes - Recipes of the needed vars
+   *
+   * @remarks
+   * Among the returned values, you will get other values.
+   * The reserved ones as "NODE_ENV", "APP_ENV" or "FORCE_DEBUG".
+   *
+   * And thoses that are used by others modules before your script.
+   * This way, you are aware of all the env vars used by your app.
+   *
+   * To be fully flexible, you can change the recipe of a var used by other modules.
+   * Only reserved ones can't be customize.
+   *
    * @returns
    *
    * @public
    */
-  static getAll(list: EnvList): any {
-    const envs: any = {
-      _recipe: list,
-      _defaultValues: {},
-      _allowedValues: {},
-      _fallbacks: {},
-      _types: {},
-      _parseTypes: {},
-    };
-    const errors: any = [];
+  getAll(recipes: EnvRecipes = []): EnvVars {
+    const allList = [
+      ...recipes,
+      ...this.reservedList,
+    ];
 
-    list.forEach(([name, defaultConfig = {}]) => {
+    const errors: any = [];
+    const { _recipes: previousRecipes } = this.vars;
+    this.vars._recipes = [...recipes, ...previousRecipes]; // eslint-disable-line no-underscore-dangle, max-len
+
+    allList.forEach(([name, config]) => {
       try {
-        const config = Env.getEnvConfig(name, defaultConfig);
-        envs[name] = Env.get(name, config);
+        this.vars[name] = Env.get(name, config);
         const {
           defaultValue, allow, type, parseType, fallback,
         } = config;
         if (defaultValue || defaultValue === false) {
-          envs._defaultValues[name] = defaultValue; // eslint-disable-line no-underscore-dangle
+          this.vars._defaultValues[name] = defaultValue; // eslint-disable-line no-underscore-dangle
         }
         if (allow) {
-          envs._allowedValues[name] = allow; // eslint-disable-line no-underscore-dangle
+          this.vars._allowedValues[name] = allow; // eslint-disable-line no-underscore-dangle
         }
         if (type !== undefined) {
-          envs._types[name] = type; // eslint-disable-line no-underscore-dangle
+          this.vars._types[name] = type; // eslint-disable-line no-underscore-dangle
         }
         if (parseType) {
-          envs._parseTypes[name] = parseType; // eslint-disable-line no-underscore-dangle
+          this.vars._parseTypes[name] = parseType; // eslint-disable-line no-underscore-dangle
         }
         if (fallback) {
-          envs._fallbacks[name] = fallback; // eslint-disable-line no-underscore-dangle
+          this.vars._fallbacks[name] = fallback; // eslint-disable-line no-underscore-dangle
         }
       } catch (err: any) {
         errors.push(err.message);
       }
     });
 
+    /* istanbul ignore next */
     if (errors.length > 0) {
       throw new Error(errors.join('\n'));
     }
 
-    return envs;
+    return this.vars;
   }
 
   /**
@@ -170,7 +218,7 @@ class Env {
    *
    * @public
    */
-  static newSecret(name: string): EnvVar {
+  newSecret(name: string): EnvRecipe { // eslint-disable-line class-methods-use-this
     return [name.toUpperCase(), { defaultValue: 'dev', type: EnvType.SECRET }];
   }
 
@@ -183,7 +231,7 @@ class Env {
    *
    * @public
    */
-  static newEnv(name: string, config: EnvCustomConfig): EnvVar {
+  newEnv(name: string, config: EnvCustomConfig): EnvRecipe { // eslint-disable-line class-methods-use-this, max-len
     return [name.toUpperCase(), { ...config, type: EnvType.ENV }];
   }
 
@@ -196,9 +244,72 @@ class Env {
    *
    * @public
    */
-  static newVar(name: string, config: EnvCustomConfig): EnvVar {
+  newVar(name: string, config: EnvCustomConfig): EnvRecipe { // eslint-disable-line class-methods-use-this, max-len
     return [name.toUpperCase(), { ...config, type: EnvType.VAR }];
+  }
+
+  /**
+   * Get the config of a new non-environment dependent Int variable
+   *
+   * @remarks
+   * Alias for:
+   * ```
+   * newVar('VAR', { parseType: 'Int' });
+   * ```
+   *
+   * @param name - The name of the new int
+   * @param config - Custom env config
+   * @returns
+   *
+   * @public
+   */
+  newInt(name: string, config: AliasCustomConfig): EnvRecipe {
+    return this.newVar(name, { ...config, parseType: 'Int' });
+  }
+
+  /**
+   * Get the config of a new non-environment dependent Float variable
+   *
+   * @remarks
+   * Alias for:
+   * ```
+   * newVar('VAR', { parseType: 'Float' });
+   * ```
+   *
+   * @param name - The name of the new float
+   * @param config - Custom env config
+   * @returns
+   *
+   * @public
+   */
+  newFloat(name: string, config: AliasCustomConfig): EnvRecipe {
+    return this.newVar(name, { ...config, parseType: 'Float' });
+  }
+
+  /**
+   * Get the config of a new non-environment dependent Array variable
+   *
+   * @remarks
+   * Alias for:
+   * ```
+   * Env.newVar('VAR', { parseType: 'Array' });
+   * ```
+   *
+   * @example
+   * ```
+   * Env.newArray('MY_ARRAY', { defaultValue: 'subito,devsecops,micro,services,framework' })
+   * // get: ['subito','devsecops','micro','services','framework']
+   * ```
+   *
+   * @param name - The name of the new array
+   * @param config - Custom env config
+   * @returns
+   *
+   * @public
+   */
+  newArray(name: string, config: AliasCustomConfig): EnvRecipe {
+    return this.newVar(name, { ...config, parseType: 'Array' });
   }
 }
 
-export default Env;
+export default new Env();

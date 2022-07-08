@@ -64,7 +64,7 @@ class Token {
    *
    * @public
    */
-  static read(token: string, { key = e.JWT_KEY, endpoint }: ReadOptions) {
+  static read(token: string, { key = e.JWT_KEY, endpoint }: ReadOptions = {}) {
     try {
       const data = <JwtPayload>jwt.verify(token.replace(/^Bearer\s+/, ''), key);
       /**
