@@ -2,11 +2,6 @@ import { EnvType } from '../helpers/Env';
 import e from './env';
 
 describe('env.js', () => {
-  // INTERNAL_GATEWAY
-  test('INTERNAL_GATEWAY default value should be', () => {
-    expect(e._defaultValues.INTERNAL_GATEWAY) // eslint-disable-line no-underscore-dangle
-      .toBe('http://internal-gateway/');
-  });
   // TOKEN_MAX_VALIDITY
   test('TOKEN_MAX_VALIDITY default value should be', () => {
     expect(e._defaultValues.TOKEN_MAX_VALIDITY) // eslint-disable-line no-underscore-dangle
