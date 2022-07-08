@@ -10,6 +10,7 @@ export { default as Checker } from './helpers/Checker';
 export { default as Cryptor } from './helpers/Cryptor';
 export { default as Data } from './helpers/Data';
 export { default as Datte } from './helpers/Datte';
+export { default as debugMode } from './helpers/debugMode';
 export { default as depreciate } from './helpers/depreciate';
 export { default as Env } from './helpers/Env';
 export { default as OpenTelemetry } from './helpers/OpenTelemetry';
@@ -18,7 +19,7 @@ export { default as Token } from './helpers/Token';
 export { default as Toolbox } from './helpers/Toolbox';
 
 // Repositories
-export { default as Gateway } from './repositories/Gateway/Gateway';
+export { default as GraphqlClient } from './repositories/Graphql/Graphql';
 export { default as Logger } from './repositories/Logger/Logger';
 
 // env vars
@@ -28,7 +29,7 @@ export { default as env } from './security/env';
 export type { EncryptData } from './helpers/Cryptor';
 export type { ParseType } from './helpers/Data';
 export type {
-  EnvList, EnvConfig, ReservedEnvVar, EnvVar,
+  EnvRecipe, EnvRecipes, EnvConfig, ReservedEnvVar, EnvVars, AliasCustomConfig, EnvCustomConfig,
 } from './helpers/Env';
-export type { GatewayInterface, AuthArgs } from './repositories/Gateway/Gateway';
+export type { GraphqlInterface, AuthArgs, GraphQLClient } from './repositories/Graphql/Graphql';
 export type { ILogger } from './repositories/Logger/Logger';
