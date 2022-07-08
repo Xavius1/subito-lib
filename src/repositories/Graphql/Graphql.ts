@@ -1,42 +1,45 @@
 import { GraphQLClient } from 'graphql-request';
 import { Headers } from 'graphql-request/dist/types.dom';
 import SERVICE_AUTH from './queries/SERVICE_AUTH';
-import Data from '../../helpers/Data';
+import Datte from '../../helpers/Datte';
 import e from '../../security/env';
 import Thrower from '../../helpers/Thrower';
+
+/** @public */
+export type { GraphQLClient } from 'graphql-request';
 
 export interface AuthArgs {
   service: string,
   secret: string,
 }
 
-export interface GatewayContext {
+export interface GraphqlContext {
   headers?: any,
   viewer?: any,
   app?: string,
   gateway?: string,
 }
 
-export interface GatewayInterface {
+export interface GraphqlInterface {
   auth: Function
   execute: Function
   setHeaders: Function
   args: AuthArgs
 }
 
-class Gateway implements GatewayInterface {
-  private client: GraphQLClient;
+class Graphql implements GraphqlInterface {
+  protected client: GraphQLClient;
 
   args: AuthArgs = { service: '', secret: '' };
 
-  private token?: string | null;
+  protected token?: string | null;
 
-  private expirationDate: number = 0;
+  protected expirationDate: number = 0;
 
   constructor({
-    endpoint = e.INTERNAL_GATEWAY,
+    endpoint = e.INTERNAL_GRAPHQL_ENDPOINT,
     headers = {
-      'x-client-name': 'dxslib/gateway',
+      'x-client-name': 'subito/graphql',
       'x-client-version': '1.0',
     },
   }) {
@@ -46,7 +49,7 @@ class Gateway implements GatewayInterface {
   async auth(args: AuthArgs) {
     this.args = args;
     try {
-      const { serviceAuth: { success, auth } } = await this.client.request(
+      const { auth: { Service: { auth: { success, auth } } } } = await this.client.request(
         SERVICE_AUTH,
         args,
       );
@@ -56,11 +59,11 @@ class Gateway implements GatewayInterface {
       }
       this.token = auth.token;
       this.setAuthHeaders();
-      this.expirationDate = this.setExpirationDate(auth.expirationDate);
+      this.setExpirationDate(auth.expirationDate);
 
       return { success, auth };
     } catch (err) {
-      this.expirationDate = this.setExpirationDate(new Date());
+      this.setExpirationDate(new Date());
       this.token = null;
       console.log(err); // eslint-disable-line no-console
 
@@ -68,7 +71,7 @@ class Gateway implements GatewayInterface {
     }
   }
 
-  private setAuthHeaders() {
+  protected setAuthHeaders() {
     this.client.setHeader('x-app-token', `Bearer ${this.token}`);
     this.client.setHeader('authorization', `Bearer ${this.token}`);
   }
@@ -78,19 +81,18 @@ class Gateway implements GatewayInterface {
     this.setAuthHeaders();
   }
 
-  private setExpirationDate(date: any) { // eslint-disable-line class-methods-use-this
-    const data = new Data(date);
-    const expDate = data.parseType('Date');
-    expDate.setHours(expDate.getHours() - 1);
-    return expDate.getTime();
+  protected setExpirationDate(date: Date) {
+    this.expirationDate = (date.getTime() - 1800);
+
+    return this;
   }
 
-  private isTokenExpired() {
+  protected isTokenExpired() {
     const now = new Date();
     return (this.expirationDate <= now.getTime());
   }
 
-  private async refreshAuth() {
+  protected async refreshAuth() {
     if (this.isTokenExpired()) {
       await this.auth(this.args);
     }
@@ -112,7 +114,7 @@ class Gateway implements GatewayInterface {
       }
     } else {
       console.log('---'); // eslint-disable-line no-console
-      console.log('Gateway called but not reachable'); // eslint-disable-line no-console
+      console.log('Graphql endpoint called but not reachable'); // eslint-disable-line no-console
       console.log(`Query: ${query}`); // eslint-disable-line no-console
       console.log(`Args: ${JSON.stringify(args)}`); // eslint-disable-line no-console
       console.log('---'); // eslint-disable-line no-console
@@ -122,4 +124,4 @@ class Gateway implements GatewayInterface {
   }
 }
 
-export default Gateway;
+export default Graphql;
