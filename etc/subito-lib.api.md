@@ -4,9 +4,17 @@
 
 ```ts
 
+import { GraphQLClient } from 'graphql-request';
 import { Headers as Headers_2 } from 'graphql-request/dist/types.dom';
 import jwt from 'jsonwebtoken';
 import { Moment } from 'moment-timezone';
+
+// @public (undocumented)
+export type AliasCustomConfig = {
+    allow?: any[];
+    defaultValue: any;
+    fallback?: string;
+};
 
 // @public (undocumented)
 export interface AuthArgs {
@@ -82,6 +90,9 @@ export class Datte {
 }
 
 // @public (undocumented)
+export const debugMode: () => any;
+
+// @public (undocumented)
 export const depreciate: (oldMethod: string, newMethod: string) => void;
 
 // @public (undocumented)
@@ -90,17 +101,13 @@ export type EncryptData = {
     api: string;
 };
 
+// Warning: (ae-forgotten-export) The symbol "Env" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export class Env {
-    static getAll(list: EnvList): any;
-    // Warning: (ae-forgotten-export) The symbol "EnvCustomConfig" needs to be exported by the entry point index.d.ts
-    static newEnv(name: string, config: EnvCustomConfig): EnvVar;
-    static newSecret(name: string): EnvVar;
-    static newVar(name: string, config: EnvCustomConfig): EnvVar;
-}
+export const Env: Env_2;
 
 // @public (undocumented)
-export const env: any;
+export const env: EnvVars;
 
 // @public (undocumented)
 export type EnvConfig = {
@@ -112,13 +119,44 @@ export type EnvConfig = {
 };
 
 // @public (undocumented)
-export type EnvList = (EnvVar | ReservedEnvVar)[];
+export type EnvCustomConfig = {
+    allow?: any[];
+    parseType?: ParseType;
+    defaultValue: any;
+    fallback?: string;
+};
 
 // @public (undocumented)
-export type EnvVar = [string, EnvConfig];
+export type EnvRecipe = [string, EnvConfig];
 
 // @public (undocumented)
-export class Gateway implements GatewayInterface {
+export type EnvRecipes = EnvRecipe[];
+
+// @public (undocumented)
+export type EnvVars = {
+    _recipes: EnvRecipes;
+    _defaultValues: {
+        [key: string]: any;
+    };
+    _allowedValues: {
+        [key: string]: any;
+    };
+    _fallbacks: {
+        [key: string]: string;
+    };
+    _types: {
+        [key: string]: EnvType;
+    };
+    _parseTypes: {
+        [key: string]: ParseType;
+    };
+    [key: string]: any;
+};
+
+export { GraphQLClient }
+
+// @public (undocumented)
+export class GraphqlClient implements GraphqlInterface {
     constructor({ endpoint, headers, }: {
         endpoint?: any;
         headers?: {
@@ -134,13 +172,27 @@ export class Gateway implements GatewayInterface {
         auth: any;
     }>;
     // (undocumented)
+    protected client: GraphQLClient;
+    // (undocumented)
     execute(query: string, args?: null): Promise<any>;
     // (undocumented)
+    protected expirationDate: number;
+    // (undocumented)
+    protected isTokenExpired(): boolean;
+    // (undocumented)
+    protected refreshAuth(): Promise<boolean>;
+    // (undocumented)
+    protected setAuthHeaders(): void;
+    // (undocumented)
+    protected setExpirationDate(date: Date): this;
+    // (undocumented)
     setHeaders(headers: Headers_2): void;
+    // (undocumented)
+    protected token?: string | null;
 }
 
 // @public (undocumented)
-export interface GatewayInterface {
+export interface GraphqlInterface {
     // (undocumented)
     args: AuthArgs;
     // (undocumented)
@@ -166,7 +218,7 @@ export interface ILogger {
     // (undocumented)
     setContext(context: any): ILogger;
     // (undocumented)
-    setGateway(gateway: GatewayInterface): ILogger;
+    setGraphql(gateway: GraphqlInterface): ILogger;
 }
 
 // Warning: (ae-forgotten-export) The symbol "Logger" needs to be exported by the entry point index.d.ts
@@ -182,10 +234,10 @@ export class OpenTelemetry {
 }
 
 // @public (undocumented)
-export type ParseType = 'Array' | 'Bool' | 'Date' | 'Float' | 'Int' | 'secret' | undefined;
+export type ParseType = 'Array' | 'Bool' | 'Float' | 'Int' | 'secret' | undefined;
 
 // @public (undocumented)
-export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'PWD')];
+export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'FORCE_DEBUG' | 'PWD')];
 
 // @public (undocumented)
 export class Thrower {
@@ -197,13 +249,11 @@ export class Thrower {
     static unauthorized(): never;
 }
 
-// @public (undocumented)
+// @public
 export class Token {
-    // (undocumented)
-    static read(token: string, key?: string): string | jwt.JwtPayload | null;
+    // Warning: (ae-forgotten-export) The symbol "ReadOptions" needs to be exported by the entry point index.d.ts
+    static read(token: string, { key, endpoint }?: ReadOptions): jwt.JwtPayload | null;
     // Warning: (ae-forgotten-export) The symbol "Data" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
     static sign(data: Data_2, subject: string, expiresIn: number, key?: string): string;
 }
 
@@ -219,6 +269,6 @@ export class Toolbox {
 
 // Warnings were encountered during analysis:
 //
-// src/helpers/Env.ts:64:18 - (ae-forgotten-export) The symbol "EnvType" needs to be exported by the entry point index.d.ts
+// src/helpers/Env.ts:68:18 - (ae-forgotten-export) The symbol "EnvType" needs to be exported by the entry point index.d.ts
 
 ```

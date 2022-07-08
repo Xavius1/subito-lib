@@ -2,7 +2,7 @@ import LOG_ACCESS from './queries/LOG_ACCESS';
 import LOG_INFO from './queries/LOG_INFO';
 import LOG_ERROR from './queries/LOG_ERROR';
 import LOG_WARNING from './queries/LOG_WARNING';
-import type { GatewayInterface, GatewayContext } from '../Gateway/Gateway';
+import type { GraphqlInterface, GraphqlContext } from '../Graphql/Graphql';
 
 const getTraceStack = function getTraceStack() {
   return Error().stack?.replace(/^Error\n/, '');
@@ -11,7 +11,7 @@ const getTraceStack = function getTraceStack() {
 type LoggerCode = string | number | null
 
 export interface ILogger {
-  setGateway(gateway: GatewayInterface): ILogger
+  setGraphql(gateway: GraphqlInterface): ILogger
   setContext(context: any): ILogger
   newInfo(message: string, context: any): any
   newError(code: LoggerCode, message: string, input?: any, context?: any): any
@@ -20,7 +20,7 @@ export interface ILogger {
 }
 
 export class Logger implements ILogger {
-  private gateway?: GatewayInterface;
+  private gateway?: GraphqlInterface;
 
   private trigger?: string;
 
@@ -30,7 +30,7 @@ export class Logger implements ILogger {
     this.context = {};
   }
 
-  setGateway(gateway: GatewayInterface) {
+  setGraphql(gateway: GraphqlInterface) {
     this.gateway = gateway;
     this.trigger = this.gateway?.args?.service || 'unknown';
     return this;
@@ -42,7 +42,7 @@ export class Logger implements ILogger {
   }
 
   static consoleLog(message: string) {
-    console.log('[INFO] Gateway unavailable at this time.'); // eslint-disable-line no-console
+    console.log('[INFO] Graphql unavailable at this time.'); // eslint-disable-line no-console
     console.log(message); // eslint-disable-line no-console
   }
 
@@ -51,7 +51,7 @@ export class Logger implements ILogger {
    */
   private async save(query: string, code: LoggerCode, message: string, input: any, {
     headers, viewer, app, gateway: gatewayName,
-  }: GatewayContext = {}) {
+  }: GraphqlContext = {}) {
     try {
       const { gateway, trigger } = this;
       if (!gateway) {

@@ -173,6 +173,31 @@
       "preserveMemberOrder": false,
       "members": [
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "subito-lib!AliasCustomConfig:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type AliasCustomConfig = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    allow?: any[];\n    defaultValue: any;\n    fallback?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "AliasCustomConfig",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "subito-lib!AuthArgs:interface",
           "docComment": "",
@@ -1587,6 +1612,28 @@
         },
         {
           "kind": "Variable",
+          "canonicalReference": "subito-lib!debugMode:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "debugMode: "
+            },
+            {
+              "kind": "Content",
+              "text": "() => any"
+            }
+          ],
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "debugMode",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Variable",
           "canonicalReference": "subito-lib!depreciate:var",
           "docComment": "",
           "excerptTokens": [
@@ -1633,249 +1680,6 @@
           }
         },
         {
-          "kind": "Class",
-          "canonicalReference": "subito-lib!Env:class",
-          "docComment": "/**\n * @public\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "declare class Env "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "Env",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Method",
-              "canonicalReference": "subito-lib!Env.getAll:member(1)",
-              "docComment": "/**\n * Get a list of env vars\n *\n * @param list - An array of env configs\n *\n * @returns \n *\n * @public\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "static getAll(list: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "EnvList",
-                  "canonicalReference": "subito-lib!EnvList:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isStatic": true,
-              "returnTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "releaseTag": "Public",
-              "isProtected": false,
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "list",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                }
-              ],
-              "isOptional": false,
-              "name": "getAll"
-            },
-            {
-              "kind": "Method",
-              "canonicalReference": "subito-lib!Env.newEnv:member(1)",
-              "docComment": "/**\n * Get the config of a new environment dependent variable\n *\n * @param name - The name of the new var\n *\n * @param config - Custom env config\n *\n * @returns \n *\n * @public\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "static newEnv(name: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", config: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "EnvCustomConfig",
-                  "canonicalReference": "subito-lib!EnvCustomConfig:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "EnvVar",
-                  "canonicalReference": "subito-lib!EnvVar:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isStatic": true,
-              "returnTypeTokenRange": {
-                "startIndex": 5,
-                "endIndex": 6
-              },
-              "releaseTag": "Public",
-              "isProtected": false,
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "name",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "config",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 3,
-                    "endIndex": 4
-                  },
-                  "isOptional": false
-                }
-              ],
-              "isOptional": false,
-              "name": "newEnv"
-            },
-            {
-              "kind": "Method",
-              "canonicalReference": "subito-lib!Env.newSecret:member(1)",
-              "docComment": "/**\n * Get the config of a new secret env\n *\n * @param name - The name of the new secret env\n *\n * @returns \n *\n * @public\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "static newSecret(name: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "EnvVar",
-                  "canonicalReference": "subito-lib!EnvVar:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isStatic": true,
-              "returnTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "releaseTag": "Public",
-              "isProtected": false,
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "name",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                }
-              ],
-              "isOptional": false,
-              "name": "newSecret"
-            },
-            {
-              "kind": "Method",
-              "canonicalReference": "subito-lib!Env.newVar:member(1)",
-              "docComment": "/**\n * Get the config of a new non-environment dependent variable\n *\n * @param name - The name of the new var\n *\n * @param config - Custom env config\n *\n * @returns \n *\n * @public\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "static newVar(name: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", config: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "EnvCustomConfig",
-                  "canonicalReference": "subito-lib!EnvCustomConfig:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "EnvVar",
-                  "canonicalReference": "subito-lib!EnvVar:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isStatic": true,
-              "returnTypeTokenRange": {
-                "startIndex": 5,
-                "endIndex": 6
-              },
-              "releaseTag": "Public",
-              "isProtected": false,
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "name",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "config",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 3,
-                    "endIndex": 4
-                  },
-                  "isOptional": false
-                }
-              ],
-              "isOptional": false,
-              "name": "newVar"
-            }
-          ],
-          "implementsTokenRanges": []
-        },
-        {
           "kind": "Variable",
           "canonicalReference": "subito-lib!env:var",
           "docComment": "",
@@ -1886,12 +1690,40 @@
             },
             {
               "kind": "Content",
-              "text": "any"
+              "text": "import(\"../helpers/Env\")."
+            },
+            {
+              "kind": "Reference",
+              "text": "EnvVars",
+              "canonicalReference": "subito-lib!EnvVars:type"
             }
           ],
           "isReadonly": true,
           "releaseTag": "Public",
           "name": "env",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "subito-lib!Env:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Env",
+              "canonicalReference": "subito-lib!~Env:class"
+            }
+          ],
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Env",
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -1942,34 +1774,25 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "subito-lib!EnvList:type",
+          "canonicalReference": "subito-lib!EnvCustomConfig:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvList = "
+              "text": "export declare type EnvCustomConfig = "
             },
             {
               "kind": "Content",
-              "text": "("
+              "text": "{\n    allow?: any[];\n    parseType?: "
             },
             {
               "kind": "Reference",
-              "text": "EnvVar",
-              "canonicalReference": "subito-lib!EnvVar:type"
+              "text": "ParseType",
+              "canonicalReference": "subito-lib!ParseType:type"
             },
             {
               "kind": "Content",
-              "text": " | "
-            },
-            {
-              "kind": "Reference",
-              "text": "ReservedEnvVar",
-              "canonicalReference": "subito-lib!ReservedEnvVar:type"
-            },
-            {
-              "kind": "Content",
-              "text": ")[]"
+              "text": ";\n    defaultValue: any;\n    fallback?: string;\n}"
             },
             {
               "kind": "Content",
@@ -1977,20 +1800,20 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "EnvList",
+          "name": "EnvCustomConfig",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 6
+            "endIndex": 4
           }
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "subito-lib!EnvVar:type",
+          "canonicalReference": "subito-lib!EnvRecipe:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvVar = "
+              "text": "export declare type EnvRecipe = "
             },
             {
               "kind": "Content",
@@ -2011,25 +1834,107 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "EnvVar",
+          "name": "EnvRecipe",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
           }
         },
         {
-          "kind": "Class",
-          "canonicalReference": "subito-lib!Gateway:class",
+          "kind": "TypeAlias",
+          "canonicalReference": "subito-lib!EnvRecipes:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare class Gateway implements "
+              "text": "export declare type EnvRecipes = "
             },
             {
               "kind": "Reference",
-              "text": "GatewayInterface",
-              "canonicalReference": "subito-lib!GatewayInterface:interface"
+              "text": "EnvRecipe",
+              "canonicalReference": "subito-lib!EnvRecipe:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "EnvRecipes",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "subito-lib!EnvVars:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type EnvVars = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    _recipes: "
+            },
+            {
+              "kind": "Reference",
+              "text": "EnvRecipes",
+              "canonicalReference": "subito-lib!EnvRecipes:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    _defaultValues: {\n        [key: string]: any;\n    };\n    _allowedValues: {\n        [key: string]: any;\n    };\n    _fallbacks: {\n        [key: string]: string;\n    };\n    _types: {\n        [key: string]: "
+            },
+            {
+              "kind": "Reference",
+              "text": "EnvType",
+              "canonicalReference": "subito-lib!EnvType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    };\n    _parseTypes: {\n        [key: string]: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ParseType",
+              "canonicalReference": "subito-lib!ParseType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    };\n    [key: string]: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "EnvVars",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "subito-lib!GraphqlClient:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Graphql implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "GraphqlInterface",
+              "canonicalReference": "subito-lib!GraphqlInterface:interface"
             },
             {
               "kind": "Content",
@@ -2037,13 +1942,13 @@
             }
           ],
           "releaseTag": "Public",
-          "name": "Gateway",
+          "name": "GraphqlClient",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "Constructor",
-              "canonicalReference": "subito-lib!Gateway:constructor(1)",
-              "docComment": "/**\n * Constructs a new instance of the `Gateway` class\n */\n",
+              "canonicalReference": "subito-lib!GraphqlClient:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `Graphql` class\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2074,7 +1979,7 @@
             },
             {
               "kind": "Property",
-              "canonicalReference": "subito-lib!Gateway#args:member",
+              "canonicalReference": "subito-lib!GraphqlClient#args:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2104,7 +2009,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "subito-lib!Gateway#auth:member(1)",
+              "canonicalReference": "subito-lib!GraphqlClient#auth:member(1)",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2156,8 +2061,38 @@
               "name": "auth"
             },
             {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!GraphqlClient#client:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected client: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GraphQLClient",
+                  "canonicalReference": "graphql-request!GraphQLClient:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "client",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
+            },
+            {
               "kind": "Method",
-              "canonicalReference": "subito-lib!Gateway#execute:member(1)",
+              "canonicalReference": "subito-lib!GraphqlClient#execute:member(1)",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2224,8 +2159,180 @@
               "name": "execute"
             },
             {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!GraphqlClient#expirationDate:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected expirationDate: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "expirationDate",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
+            },
+            {
               "kind": "Method",
-              "canonicalReference": "subito-lib!Gateway#setHeaders:member(1)",
+              "canonicalReference": "subito-lib!GraphqlClient#isTokenExpired:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected isTokenExpired(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "name": "isTokenExpired"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#refreshAuth:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected refreshAuth(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "name": "refreshAuth"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#setAuthHeaders:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected setAuthHeaders(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "name": "setAuthHeaders"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#setExpirationDate:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected setExpirationDate(date: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Date",
+                  "canonicalReference": "!Date:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "this"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "date",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "name": "setExpirationDate"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#setHeaders:member(1)",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2270,6 +2377,35 @@
               ],
               "isOptional": false,
               "name": "setHeaders"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!GraphqlClient#token:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected token?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "token",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
             }
           ],
           "implementsTokenRanges": [
@@ -2281,21 +2417,21 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "subito-lib!GatewayInterface:interface",
+          "canonicalReference": "subito-lib!GraphqlInterface:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface GatewayInterface "
+              "text": "export interface GraphqlInterface "
             }
           ],
           "releaseTag": "Public",
-          "name": "GatewayInterface",
+          "name": "GraphqlInterface",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GatewayInterface#args:member",
+              "canonicalReference": "subito-lib!GraphqlInterface#args:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2323,7 +2459,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GatewayInterface#auth:member",
+              "canonicalReference": "subito-lib!GraphqlInterface#auth:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2351,7 +2487,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GatewayInterface#execute:member",
+              "canonicalReference": "subito-lib!GraphqlInterface#execute:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2379,7 +2515,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GatewayInterface#setHeaders:member",
+              "canonicalReference": "subito-lib!GraphqlInterface#setHeaders:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2813,17 +2949,17 @@
             },
             {
               "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#setGateway:member(1)",
+              "canonicalReference": "subito-lib!ILogger#setGraphql:member(1)",
               "docComment": "",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "setGateway(gateway: "
+                  "text": "setGraphql(gateway: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "GatewayInterface",
-                  "canonicalReference": "subito-lib!GatewayInterface:interface"
+                  "text": "GraphqlInterface",
+                  "canonicalReference": "subito-lib!GraphqlInterface:interface"
                 },
                 {
                   "kind": "Content",
@@ -2856,7 +2992,7 @@
                   "isOptional": false
                 }
               ],
-              "name": "setGateway"
+              "name": "setGraphql"
             }
           ],
           "extendsTokenRanges": []
@@ -2975,7 +3111,7 @@
             },
             {
               "kind": "Content",
-              "text": "'Array' | 'Bool' | 'Date' | 'Float' | 'Int' | 'secret' | undefined"
+              "text": "'Array' | 'Bool' | 'Float' | 'Int' | 'secret' | undefined"
             },
             {
               "kind": "Content",
@@ -3000,7 +3136,7 @@
             },
             {
               "kind": "Content",
-              "text": "[('APP_ENV' | 'NODE_ENV' | 'PWD')]"
+              "text": "[('APP_ENV' | 'NODE_ENV' | 'FORCE_DEBUG' | 'PWD')]"
             },
             {
               "kind": "Content",
@@ -3141,7 +3277,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Token:class",
-          "docComment": "",
+          "docComment": "/**\n * Handle tokens auth\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3155,7 +3291,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Token.read:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Decode a token\n *\n * @param token - The token to decode\n *\n * @param options - Some options use to decode the token\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3167,11 +3303,12 @@
                 },
                 {
                   "kind": "Content",
-                  "text": ", key?: "
+                  "text": ", { key, endpoint }?: "
                 },
                 {
-                  "kind": "Content",
-                  "text": "string"
+                  "kind": "Reference",
+                  "text": "ReadOptions",
+                  "canonicalReference": "subito-lib!ReadOptions:type"
                 },
                 {
                   "kind": "Content",
@@ -3179,7 +3316,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "string | jwt."
+                  "text": "jwt."
                 },
                 {
                   "kind": "Reference",
@@ -3213,7 +3350,7 @@
                   "isOptional": false
                 },
                 {
-                  "parameterName": "key",
+                  "parameterName": "{ key, endpoint }",
                   "parameterTypeTokenRange": {
                     "startIndex": 3,
                     "endIndex": 4
@@ -3227,7 +3364,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Token.sign:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Sign a new token\n *\n * @remarks\n *\n * Security best practice: Create a token that contains the name of the endpoint use to generate it. This way, when you read it, you can verify the endpoint use to execute requests match the one use to created the token. For example, a token created through the internal endpoint should not be used through the client endpoint and vice versa.\n *\n * @param data - Content of your token\n *\n * @param subject - Subject\n *\n * @param expiresIn - Expressed in seconds or a string describing a time span zeit/ms. {@link https://github.com/vercel/ms}\n *\n * @param key - Secret use to encoded the token\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3236,7 +3373,7 @@
                 {
                   "kind": "Reference",
                   "text": "Data",
-                  "canonicalReference": "subito-lib!~Data:interface"
+                  "canonicalReference": "subito-lib!Data:interface"
                 },
                 {
                   "kind": "Content",
