@@ -199,21 +199,21 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "subito-lib!AuthArgs:interface",
+          "canonicalReference": "subito-lib!AuthInput:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface AuthArgs "
+              "text": "export interface AuthInput "
             }
           ],
           "releaseTag": "Public",
-          "name": "AuthArgs",
+          "name": "AuthInput",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!AuthArgs#secret:member",
+              "canonicalReference": "subito-lib!AuthInput#secret:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -240,7 +240,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!AuthArgs#service:member",
+              "canonicalReference": "subito-lib!AuthInput#service:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -1925,16 +1925,16 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!GraphqlClient:class",
-          "docComment": "",
+          "docComment": "/**\n * Connect to a GraphQL endpoint\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "declare class Graphql implements "
+              "text": "declare class GraphqlClient implements "
             },
             {
               "kind": "Reference",
-              "text": "GraphqlInterface",
-              "canonicalReference": "subito-lib!GraphqlInterface:interface"
+              "text": "IGraphqlClient",
+              "canonicalReference": "subito-lib!IGraphqlClient:interface"
             },
             {
               "kind": "Content",
@@ -1948,7 +1948,7 @@
             {
               "kind": "Constructor",
               "canonicalReference": "subito-lib!GraphqlClient:constructor(1)",
-              "docComment": "/**\n * Constructs a new instance of the `Graphql` class\n */\n",
+              "docComment": "/**\n * Constructs a new instance of the `GraphqlClient` class\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1978,48 +1978,18 @@
               ]
             },
             {
-              "kind": "Property",
-              "canonicalReference": "subito-lib!GraphqlClient#args:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "args: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "AuthArgs",
-                  "canonicalReference": "subito-lib!AuthArgs:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "args",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isStatic": false,
-              "isProtected": false
-            },
-            {
               "kind": "Method",
               "canonicalReference": "subito-lib!GraphqlClient#auth:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Get an auth token\n *\n * @param input - Your credentials\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "auth(args: "
+                  "text": "auth(input: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "AuthArgs",
-                  "canonicalReference": "subito-lib!AuthArgs:interface"
+                  "text": "AuthInput",
+                  "canonicalReference": "subito-lib!AuthInput:interface"
                 },
                 {
                   "kind": "Content",
@@ -2049,7 +2019,7 @@
               "overloadIndex": 1,
               "parameters": [
                 {
-                  "parameterName": "args",
+                  "parameterName": "input",
                   "parameterTypeTokenRange": {
                     "startIndex": 1,
                     "endIndex": 2
@@ -2063,7 +2033,7 @@
             {
               "kind": "Property",
               "canonicalReference": "subito-lib!GraphqlClient#client:member",
-              "docComment": "",
+              "docComment": "/**\n * The graphql client\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2093,7 +2063,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!GraphqlClient#execute:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Execute a query through the graphql endpoint\n *\n * @param query - Your query\n *\n * @param input - Input needed by your query\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2105,7 +2075,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": ", args?: "
+                  "text": ", input?: "
                 },
                 {
                   "kind": "Content",
@@ -2147,7 +2117,7 @@
                   "isOptional": false
                 },
                 {
-                  "parameterName": "args",
+                  "parameterName": "input",
                   "parameterTypeTokenRange": {
                     "startIndex": 3,
                     "endIndex": 4
@@ -2161,7 +2131,7 @@
             {
               "kind": "Property",
               "canonicalReference": "subito-lib!GraphqlClient#expirationDate:member",
-              "docComment": "",
+              "docComment": "/**\n * The token expiration date\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2189,8 +2159,68 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#getClientName:member(1)",
+              "docComment": "/**\n * Get the client name\n *\n * @returns \n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getClientName(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "name": "getClientName"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!GraphqlClient#input:member",
+              "docComment": "/**\n * The credentials to auth the client\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected input: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "AuthInput",
+                  "canonicalReference": "subito-lib!AuthInput:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "input",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "subito-lib!GraphqlClient#isTokenExpired:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Check if the token has expired\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2220,7 +2250,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!GraphqlClient#refreshAuth:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Get a new auth token\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2233,7 +2263,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "<boolean>"
+                  "text": "<true>"
                 },
                 {
                   "kind": "Content",
@@ -2255,15 +2285,16 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!GraphqlClient#setAuthHeaders:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Set auth headers\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
                   "text": "protected setAuthHeaders(): "
                 },
                 {
-                  "kind": "Content",
-                  "text": "void"
+                  "kind": "Reference",
+                  "text": "GraphqlClient",
+                  "canonicalReference": "subito-lib!~GraphqlClient:class"
                 },
                 {
                   "kind": "Content",
@@ -2284,8 +2315,57 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#setCustomHeaders:member(1)",
+              "docComment": "/**\n * Set custom headers\n *\n * @param headers - Headers to add\n *\n * @returns \n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "setCustomHeaders(headers: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Headers",
+                  "canonicalReference": "graphql-request!Headers:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GraphqlClient",
+                  "canonicalReference": "subito-lib!~GraphqlClient:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "headers",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "name": "setCustomHeaders"
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "subito-lib!GraphqlClient#setExpirationDate:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Set expiration date\n *\n * @param date - Expiration date\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2301,8 +2381,9 @@
                   "text": "): "
                 },
                 {
-                  "kind": "Content",
-                  "text": "this"
+                  "kind": "Reference",
+                  "text": "GraphqlClient",
+                  "canonicalReference": "subito-lib!~GraphqlClient:class"
                 },
                 {
                   "kind": "Content",
@@ -2331,57 +2412,9 @@
               "name": "setExpirationDate"
             },
             {
-              "kind": "Method",
-              "canonicalReference": "subito-lib!GraphqlClient#setHeaders:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "setHeaders(headers: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Headers",
-                  "canonicalReference": "graphql-request!Headers:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Content",
-                  "text": "void"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isStatic": false,
-              "returnTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "releaseTag": "Public",
-              "isProtected": false,
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "headers",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                }
-              ],
-              "isOptional": false,
-              "name": "setHeaders"
-            },
-            {
               "kind": "Property",
               "canonicalReference": "subito-lib!GraphqlClient#token:member",
-              "docComment": "",
+              "docComment": "/**\n * The auth token\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2417,49 +2450,21 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "subito-lib!GraphqlInterface:interface",
+          "canonicalReference": "subito-lib!IGraphqlClient:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface GraphqlInterface "
+              "text": "export interface IGraphqlClient "
             }
           ],
           "releaseTag": "Public",
-          "name": "GraphqlInterface",
+          "name": "IGraphqlClient",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GraphqlInterface#args:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "args: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "AuthArgs",
-                  "canonicalReference": "subito-lib!AuthArgs:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "args",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GraphqlInterface#auth:member",
+              "canonicalReference": "subito-lib!IGraphqlClient#auth:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2487,7 +2492,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GraphqlInterface#execute:member",
+              "canonicalReference": "subito-lib!IGraphqlClient#execute:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -2515,12 +2520,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "subito-lib!GraphqlInterface#setHeaders:member",
+              "canonicalReference": "subito-lib!IGraphqlClient#getClientName:member",
               "docComment": "",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "setHeaders: "
+                  "text": "getClientName: "
                 },
                 {
                   "kind": "Reference",
@@ -2535,7 +2540,35 @@
               "isReadonly": false,
               "isOptional": false,
               "releaseTag": "Public",
-              "name": "setHeaders",
+              "name": "getClientName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "subito-lib!IGraphqlClient#setCustomHeaders:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "setCustomHeaders: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Function",
+                  "canonicalReference": "!Function:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "setCustomHeaders",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -2958,8 +2991,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "GraphqlInterface",
-                  "canonicalReference": "subito-lib!GraphqlInterface:interface"
+                  "text": "IGraphqlClient",
+                  "canonicalReference": "subito-lib!IGraphqlClient:interface"
                 },
                 {
                   "kind": "Content",

@@ -17,7 +17,7 @@ export type AliasCustomConfig = {
 };
 
 // @public (undocumented)
-export interface AuthArgs {
+export interface AuthInput {
     // (undocumented)
     secret: string;
     // (undocumented)
@@ -153,10 +153,8 @@ export type EnvVars = {
     [key: string]: any;
 };
 
-export { GraphQLClient }
-
-// @public (undocumented)
-export class GraphqlClient implements GraphqlInterface {
+// @public
+export class GraphqlClient implements IGraphqlClient {
     constructor({ endpoint, headers, }: {
         endpoint?: any;
         headers?: {
@@ -164,43 +162,33 @@ export class GraphqlClient implements GraphqlInterface {
             'x-client-version': string;
         } | undefined;
     });
-    // (undocumented)
-    args: AuthArgs;
-    // (undocumented)
-    auth(args: AuthArgs): Promise<{
+    auth(input: AuthInput): Promise<{
         success: any;
         auth: any;
     }>;
-    // (undocumented)
     protected client: GraphQLClient;
-    // (undocumented)
-    execute(query: string, args?: null): Promise<any>;
-    // (undocumented)
+    execute(query: string, input?: null): Promise<any>;
     protected expirationDate: number;
-    // (undocumented)
+    getClientName(): string;
+    protected input: AuthInput;
     protected isTokenExpired(): boolean;
-    // (undocumented)
-    protected refreshAuth(): Promise<boolean>;
-    // (undocumented)
-    protected setAuthHeaders(): void;
-    // (undocumented)
-    protected setExpirationDate(date: Date): this;
-    // (undocumented)
-    setHeaders(headers: Headers_2): void;
-    // (undocumented)
+    protected refreshAuth(): Promise<true>;
+    protected setAuthHeaders(): GraphqlClient;
+    setCustomHeaders(headers: Headers_2): GraphqlClient;
+    protected setExpirationDate(date: Date): GraphqlClient;
     protected token?: string | null;
 }
 
 // @public (undocumented)
-export interface GraphqlInterface {
-    // (undocumented)
-    args: AuthArgs;
+export interface IGraphqlClient {
     // (undocumented)
     auth: Function;
     // (undocumented)
     execute: Function;
     // (undocumented)
-    setHeaders: Function;
+    getClientName: Function;
+    // (undocumented)
+    setCustomHeaders: Function;
 }
 
 // @public (undocumented)
@@ -218,7 +206,7 @@ export interface ILogger {
     // (undocumented)
     setContext(context: any): ILogger;
     // (undocumented)
-    setGraphql(gateway: GraphqlInterface): ILogger;
+    setGraphql(gateway: IGraphqlClient): ILogger;
 }
 
 // Warning: (ae-forgotten-export) The symbol "Logger" needs to be exported by the entry point index.d.ts
