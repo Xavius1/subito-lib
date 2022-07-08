@@ -2,7 +2,7 @@ import LOG_ACCESS from './queries/LOG_ACCESS';
 import LOG_INFO from './queries/LOG_INFO';
 import LOG_ERROR from './queries/LOG_ERROR';
 import LOG_WARNING from './queries/LOG_WARNING';
-import type { GraphqlInterface, GraphqlContext } from '../Graphql/Graphql';
+import type { IGraphqlClient, GraphqlContext } from '../Graphql/GraphqlClient';
 
 const getTraceStack = function getTraceStack() {
   return Error().stack?.replace(/^Error\n/, '');
@@ -11,7 +11,7 @@ const getTraceStack = function getTraceStack() {
 type LoggerCode = string | number | null
 
 export interface ILogger {
-  setGraphql(gateway: GraphqlInterface): ILogger
+  setGraphql(gateway: IGraphqlClient): ILogger
   setContext(context: any): ILogger
   newInfo(message: string, context: any): any
   newError(code: LoggerCode, message: string, input?: any, context?: any): any
@@ -20,7 +20,7 @@ export interface ILogger {
 }
 
 export class Logger implements ILogger {
-  private gateway?: GraphqlInterface;
+  private gateway?: IGraphqlClient;
 
   private trigger?: string;
 
@@ -30,9 +30,9 @@ export class Logger implements ILogger {
     this.context = {};
   }
 
-  setGraphql(gateway: GraphqlInterface) {
+  setGraphql(gateway: IGraphqlClient) {
     this.gateway = gateway;
-    this.trigger = this.gateway?.args?.service || 'unknown';
+    this.trigger = this.gateway?.getClientName() || 'unknown';
     return this;
   }
 
@@ -60,7 +60,7 @@ export class Logger implements ILogger {
       }
 
       if (headers) {
-        gateway?.setHeaders(headers);
+        gateway?.setCustomHeaders(headers);
       }
 
       return gateway?.execute(query, {

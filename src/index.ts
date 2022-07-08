@@ -19,7 +19,7 @@ export { default as Token } from './helpers/Token';
 export { default as Toolbox } from './helpers/Toolbox';
 
 // Repositories
-export { default as GraphqlClient } from './repositories/Graphql/Graphql';
+export { default as GraphqlClient } from './repositories/Graphql/GraphqlClient';
 export { default as Logger } from './repositories/Logger/Logger';
 
 // env vars
@@ -31,5 +31,5 @@ export type { ParseType } from './helpers/Data';
 export type {
   EnvRecipe, EnvRecipes, EnvConfig, ReservedEnvVar, EnvVars, AliasCustomConfig, EnvCustomConfig,
 } from './helpers/Env';
-export type { GraphqlInterface, AuthArgs, GraphQLClient } from './repositories/Graphql/Graphql';
+export type { IGraphqlClient, AuthInput } from './repositories/Graphql/GraphqlClient';
 export type { ILogger } from './repositories/Logger/Logger';
