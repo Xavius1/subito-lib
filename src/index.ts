@@ -29,7 +29,14 @@ export { default as env } from './security/env';
 export type { EncryptData } from './helpers/Cryptor';
 export type { ParseType } from './helpers/Data';
 export type {
-  EnvRecipe, EnvRecipes, EnvConfig, ReservedEnvVar, EnvVars, AliasCustomConfig, EnvCustomConfig,
+  AliasCustomConfig,
+  EnvConfig,
+  EnvCustomConfig,
+  EnvRecipe,
+  EnvRecipes,
+  EnvType,
+  EnvVars,
+  ReservedEnvVar,
 } from './helpers/Env';
 export type { IGraphqlClient, AuthInput } from './repositories/Graphql/GraphqlClient';
 export type { ILogger } from './repositories/Logger/Logger';
