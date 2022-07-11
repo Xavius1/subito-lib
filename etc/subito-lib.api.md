@@ -133,6 +133,16 @@ export type EnvRecipe = [string, EnvConfig];
 export type EnvRecipes = EnvRecipe[];
 
 // @public (undocumented)
+export enum EnvType {
+    // (undocumented)
+    ENV = 1,
+    // (undocumented)
+    SECRET = 0,
+    // (undocumented)
+    VAR = 2
+}
+
+// @public (undocumented)
 export type EnvVars = {
     _recipes: EnvRecipes;
     _defaultValues: {
@@ -254,9 +264,5 @@ export class Toolbox {
     // (undocumented)
     static replaceJsonKeyPart(obj: any, target: string, replacement: string): any;
 }
-
-// Warnings were encountered during analysis:
-//
-// src/helpers/Env.ts:68:18 - (ae-forgotten-export) The symbol "EnvType" needs to be exported by the entry point index.d.ts
 
 ```

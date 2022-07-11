@@ -1871,6 +1871,85 @@
           }
         },
         {
+          "kind": "Enum",
+          "canonicalReference": "subito-lib!EnvType:enum",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare enum EnvType "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "EnvType",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "subito-lib!EnvType.ENV:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ENV = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "1"
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "ENV"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "subito-lib!EnvType.SECRET:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "SECRET = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "0"
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "SECRET"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "subito-lib!EnvType.VAR:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "VAR = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "2"
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "VAR"
+            }
+          ]
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvVars:type",
           "docComment": "",
