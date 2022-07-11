@@ -2034,8 +2034,9 @@
                   "text": "constructor({ endpoint, headers, }: "
                 },
                 {
-                  "kind": "Content",
-                  "text": "{\n        endpoint?: any;\n        headers?: {\n            'x-client-name': string;\n            'x-client-version': string;\n        } | undefined;\n    }"
+                  "kind": "Reference",
+                  "text": "GraphqlClientProps",
+                  "canonicalReference": "subito-lib!GraphqlClientProps:type"
                 },
                 {
                   "kind": "Content",
@@ -2526,6 +2527,31 @@
               "endIndex": 2
             }
           ]
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "subito-lib!GraphqlClientProps:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type GraphqlClientProps = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    endpoint?: string;\n    headers?: {\n        'x-client-name': string;\n        'x-client-version': string;\n    };\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "GraphqlClientProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "Interface",
