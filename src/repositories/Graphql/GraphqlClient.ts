@@ -23,6 +23,14 @@ export interface IGraphqlClient {
   getClientName: Function
 }
 
+export type GraphqlClientProps = {
+  endpoint?: string
+  headers?: {
+    'x-client-name': string
+    'x-client-version': string
+  }
+}
+
 /**
  * Connect to a GraphQL endpoint
  *
@@ -59,7 +67,7 @@ class GraphqlClient implements IGraphqlClient {
       'x-client-name': 'subito/graphql',
       'x-client-version': '1.0',
     },
-  }) {
+  }: GraphqlClientProps) {
     this.client = new GraphQLClient(endpoint, { headers });
   }
 

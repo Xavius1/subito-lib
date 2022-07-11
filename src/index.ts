@@ -38,5 +38,5 @@ export type {
   EnvVars,
   ReservedEnvVar,
 } from './helpers/Env';
-export type { IGraphqlClient, AuthInput } from './repositories/Graphql/GraphqlClient';
+export type { IGraphqlClient, GraphqlClientProps, AuthInput } from './repositories/Graphql/GraphqlClient';
 export type { ILogger } from './repositories/Logger/Logger';
