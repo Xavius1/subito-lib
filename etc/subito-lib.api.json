@@ -1690,7 +1690,7 @@
             },
             {
               "kind": "Content",
-              "text": "import(\"../helpers/Env\")."
+              "text": "import(\"../helpers/Env.js\")."
             },
             {
               "kind": "Reference",
