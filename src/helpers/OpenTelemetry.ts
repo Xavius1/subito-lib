@@ -8,7 +8,7 @@ import { AmqplibInstrumentation } from '@opentelemetry/instrumentation-amqplib';
 import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
 // import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
-import e from '../security/env';
+import e from '../security/env.js';
 
 type OTExporter = {
   tags: any[]

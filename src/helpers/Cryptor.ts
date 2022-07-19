@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import e from '../security/env';
+import e from '../security/env.js';
 
 interface IvHashes {
   [key: string]: string

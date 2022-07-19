@@ -1,6 +1,6 @@
 import moment from 'moment-with-locales-es6';
 import momenttz, { Moment } from 'moment-timezone';
-import e from '../security/env';
+import e from '../security/env.js';
 
 /**
  * Class to normalize date usage (WIP)

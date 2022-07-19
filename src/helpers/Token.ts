@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import type { JwtPayload } from 'jsonwebtoken';
-import e from '../security/env';
+import e from '../security/env.js';
 
 /** @public */
 export interface Data {

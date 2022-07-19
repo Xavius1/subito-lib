@@ -1,4 +1,4 @@
-import Checker from './Checker';
+import Checker from './Checker.js';
 
 class Toolbox {
   static async asyncForEach<T = any>(array: T[], callback: Function) {

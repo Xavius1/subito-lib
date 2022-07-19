@@ -5,29 +5,29 @@
  */
 
 // Helpers
-export { default as Calculator } from './helpers/Calculator';
-export { default as Checker } from './helpers/Checker';
-export { default as Cryptor } from './helpers/Cryptor';
-export { default as Data } from './helpers/Data';
-export { default as Datte } from './helpers/Datte';
-export { default as debugMode } from './helpers/debugMode';
-export { default as depreciate } from './helpers/depreciate';
-export { default as Env } from './helpers/Env';
-export { default as OpenTelemetry } from './helpers/OpenTelemetry';
-export { default as Thrower } from './helpers/Thrower';
-export { default as Token } from './helpers/Token';
-export { default as Toolbox } from './helpers/Toolbox';
+export { default as Calculator } from './helpers/Calculator.js';
+export { default as Checker } from './helpers/Checker.js';
+export { default as Cryptor } from './helpers/Cryptor.js';
+export { default as Data } from './helpers/Data.js';
+export { default as Datte } from './helpers/Datte.js';
+export { default as debugMode } from './helpers/debugMode.js';
+export { default as depreciate } from './helpers/depreciate.js';
+export { default as Env } from './helpers/Env.js';
+export { default as OpenTelemetry } from './helpers/OpenTelemetry.js';
+export { default as Thrower } from './helpers/Thrower.js';
+export { default as Token } from './helpers/Token.js';
+export { default as Toolbox } from './helpers/Toolbox.js';
 
 // Repositories
-export { default as GraphqlClient } from './repositories/Graphql/GraphqlClient';
-export { default as Logger } from './repositories/Logger/Logger';
+export { default as GraphqlClient } from './repositories/Graphql/GraphqlClient.js';
+export { default as Logger } from './repositories/Logger/Logger.js';
 
 // env vars
-export { default as env } from './security/env';
+export { default as env } from './security/env.js';
 
 // Types
-export type { EncryptData } from './helpers/Cryptor';
-export type { ParseType } from './helpers/Data';
+export type { EncryptData } from './helpers/Cryptor.js';
+export type { ParseType } from './helpers/Data.js';
 export type {
   AliasCustomConfig,
   EnvConfig,
@@ -37,6 +37,6 @@ export type {
   EnvType,
   EnvVars,
   ReservedEnvVar,
-} from './helpers/Env';
-export type { IGraphqlClient, GraphqlClientProps, AuthInput } from './repositories/Graphql/GraphqlClient';
-export type { ILogger } from './repositories/Logger/Logger';
+} from './helpers/Env.js';
+export type { IGraphqlClient, GraphqlClientProps, AuthInput } from './repositories/Graphql/GraphqlClient.js';
+export type { ILogger } from './repositories/Logger/Logger.js';

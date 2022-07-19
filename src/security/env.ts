@@ -1,4 +1,4 @@
-import Env from '../helpers/Env';
+import Env from '../helpers/Env.js';
 
 const env = Env.getAll([
   Env.newSecret('CRYPTO_IV_HASH'),

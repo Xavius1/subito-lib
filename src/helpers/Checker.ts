@@ -1,4 +1,4 @@
-import Thrower from './Thrower';
+import Thrower from './Thrower.js';
 
 class Checker {
   private toThrow: boolean = false;
