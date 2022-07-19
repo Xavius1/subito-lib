@@ -109,7 +109,12 @@ class GraphqlClient implements IGraphqlClient {
         Thrower.unauthorized();
       }
       this.token = auth.token;
-      this.setExpirationDate(auth.expirationDate);
+
+      let d = auth.expirationDate;
+      if (typeof auth.expirationDate === 'string') {
+        d = new Date(auth.expirationDate);
+      }
+      this.setExpirationDate(d);
 
       return { success, auth };
     } catch (err) {
