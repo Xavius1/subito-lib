@@ -1,6 +1,6 @@
 {
   "name": "subito-lib",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Library for subito micro services",
   "main": "./dist/index.js",
   "typings": "./dist/subito-lib.d.ts",
