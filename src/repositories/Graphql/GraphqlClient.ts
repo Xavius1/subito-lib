@@ -92,18 +92,24 @@ class GraphqlClient implements IGraphqlClient {
     this.input = input;
     try {
       const { authQuery, client } = this;
-      const { auth: { Service: { auth: { success, auth } } } } = await client.request(
+      const res = await client.request(
         authQuery,
         input,
       );
 
-      if (!success) {
+      const data = res?.auth?.Service?.auth || null;
+
+      if (!data) {
+        return res;
+      }
+
+      const { success, auth } = data;
+
+      if (!data.success) {
         Thrower.unauthorized();
       }
       this.token = auth.token;
-      this
-        .setAuthHeaders()
-        .setExpirationDate(auth.expirationDate);
+      this.setExpirationDate(auth.expirationDate);
 
       return { success, auth };
     } catch (err) {
@@ -167,7 +173,9 @@ class GraphqlClient implements IGraphqlClient {
    * @public
    */
   protected setExpirationDate(date: Date): GraphqlClient {
-    this.expirationDate = (date.getTime() - 1800);
+    this
+      .setAuthHeaders()
+      .expirationDate = (date.getTime() - 1800);
 
     return this;
   }

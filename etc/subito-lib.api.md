@@ -166,10 +166,7 @@ export type EnvVars = {
 // @public
 export class GraphqlClient implements IGraphqlClient {
     constructor({ endpoint, headers, authQuery, }: GraphqlClientProps);
-    auth(input: AuthInput): Promise<{
-        success: any;
-        auth: any;
-    }>;
+    auth(input: AuthInput): Promise<any>;
     protected authQuery: string;
     protected client: GraphQLClient;
     execute(query: string, input?: null): Promise<any>;
