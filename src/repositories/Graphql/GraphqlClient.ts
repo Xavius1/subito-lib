@@ -29,6 +29,7 @@ export type GraphqlClientProps = {
     'x-client-name': string
     'x-client-version': string
   }
+  authQuery?: string
 }
 
 /**
@@ -42,6 +43,12 @@ class GraphqlClient implements IGraphqlClient {
    * @public
    */
   protected client: GraphQLClient;
+
+  /**
+   * Auth query
+   * @public
+   */
+  protected authQuery: string;
 
   /**
    * The credentials to auth the client
@@ -67,7 +74,9 @@ class GraphqlClient implements IGraphqlClient {
       'x-client-name': 'subito/graphql',
       'x-client-version': '1.0',
     },
+    authQuery,
   }: GraphqlClientProps) {
+    this.authQuery = authQuery || SERVICE_AUTH;
     this.client = new GraphQLClient(endpoint, { headers });
   }
 
@@ -82,8 +91,9 @@ class GraphqlClient implements IGraphqlClient {
   async auth(input: AuthInput) {
     this.input = input;
     try {
-      const { auth: { Service: { auth: { success, auth } } } } = await this.client.request(
-        SERVICE_AUTH,
+      const { authQuery, client } = this;
+      const { auth: { Service: { auth: { success, auth } } } } = await client.request(
+        authQuery,
         input,
       );
 
