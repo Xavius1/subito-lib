@@ -65,6 +65,9 @@ export type Context = {
         [key: string]: any;
     };
     debug: boolean;
+    options?: {
+        [key: string]: any;
+    };
 };
 
 // @public
@@ -118,7 +121,9 @@ export type EncryptData = {
 // @public (undocumented)
 export const Env: Env_2;
 
-// @public (undocumented)
+// Warning: (ae-internal-missing-underscore) The name "env" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
 export const env: EnvVars;
 
 // @public (undocumented)
@@ -266,10 +271,6 @@ export abstract class Service {
 // @public
 export class Subito {
     constructor(input: SubitoInput, commandOptions?: CommandOption | CommandOption[]);
-    // (undocumented)
-    commandOptions: {
-        [key: string]: any;
-    };
     // (undocumented)
     context: Context;
     // @internal

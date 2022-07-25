@@ -1112,7 +1112,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    dataSources: {\n        [key: string]: any;\n    };\n    services: {\n        [key: string]: any;\n    };\n    debug: boolean;\n}"
+              "text": "{\n    dataSources: {\n        [key: string]: any;\n    };\n    services: {\n        [key: string]: any;\n    };\n    debug: boolean;\n    options?: {\n        [key: string]: any;\n    };\n}"
             },
             {
               "kind": "Content",
@@ -1803,33 +1803,6 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
-          }
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "subito-lib!env:var",
-          "docComment": "/**\n * @public\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "env: "
-            },
-            {
-              "kind": "Content",
-              "text": "import(\"../helpers/Env.js\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "EnvVars",
-              "canonicalReference": "subito-lib!EnvVars:type"
-            }
-          ],
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "env",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 3
           }
         },
         {
@@ -3168,35 +3141,6 @@
                   "isOptional": true
                 }
               ]
-            },
-            {
-              "kind": "Property",
-              "canonicalReference": "subito-lib!Subito#commandOptions:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "commandOptions: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "{\n        [key: string]: any;\n    }"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "commandOptions",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isStatic": false,
-              "isProtected": false
             },
             {
               "kind": "Property",
