@@ -256,8 +256,20 @@ export class OpenTelemetry {
 // @public (undocumented)
 export type ParseType = 'Array' | 'Bool' | 'Float' | 'Int' | 'secret' | undefined;
 
+// @public
+export abstract class Repository {
+    // (undocumented)
+    protected context: Context | undefined;
+}
+
 // @public (undocumented)
 export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'FORCE_DEBUG' | 'PWD')];
+
+// @public
+export abstract class Service {
+    // (undocumented)
+    protected context: Context | undefined;
+}
 
 // @public
 export class Subito {

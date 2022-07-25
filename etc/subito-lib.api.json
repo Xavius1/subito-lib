@@ -3343,6 +3343,57 @@
           }
         },
         {
+          "kind": "Class",
+          "canonicalReference": "subito-lib!Repository:class",
+          "docComment": "/**\n * Abstract class repository\n *\n * @remarks\n *\n * Use this abstract class when you create a new repository use by the {@link Subito} class\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare abstract class Repository "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "Repository",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!Repository#context:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected context: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Context",
+                  "canonicalReference": "subito-lib!Context:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "context",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!ReservedEnvVar:type",
           "docComment": "",
@@ -3366,6 +3417,57 @@
             "startIndex": 1,
             "endIndex": 2
           }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "subito-lib!Service:class",
+          "docComment": "/**\n * Abstract class service\n *\n * @remarks\n *\n * Use this abstract class when you create a new service use by the {@link Subito} class\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare abstract class Service "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "Service",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!Service#context:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected context: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Context",
+                  "canonicalReference": "subito-lib!Context:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "context",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": true
+            }
+          ],
+          "implementsTokenRanges": []
         },
         {
           "kind": "Class",

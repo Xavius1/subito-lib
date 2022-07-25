@@ -14,6 +14,8 @@ export { default as debugMode } from './helpers/debugMode.js';
 export { default as depreciate } from './helpers/depreciate.js';
 export { default as Env } from './helpers/Env.js';
 export { default as OpenTelemetry } from './helpers/OpenTelemetry.js';
+export { default as Repository } from './helpers/Repository.js';
+export { default as Service } from './helpers/Service.js';
 export { default as Subito } from './helpers/Subito.js';
 export { default as Thrower } from './helpers/Thrower.js';
 export { default as Token } from './helpers/Token.js';
