@@ -12,6 +12,7 @@ export type Context = {
   dataSources: { [key: string]: any }
   services: { [key: string]: any }
   debug: boolean
+  options?: { [key: string]: any; }
 }
 
 /** @public */
@@ -28,8 +29,6 @@ export type CommandOption = {
  * @public
  */
 class Subito {
-  commandOptions: { [key: string]: any; } = {};
-
   context: Context;
 
   constructor(input: SubitoInput, commandOptions?: CommandOption | CommandOption[]) {
@@ -58,7 +57,7 @@ class Subito {
   protected readOptions() {
     const args = process.argv.slice(2);
     const { options } = argv.run(args);
-    this.commandOptions = options;
+    this.context.options = options;
 
     return this;
   }

@@ -93,6 +93,7 @@ export type EnvVars = {
 }
 
 /**
+ * Handles env vars
  * @public
  */
 class Env {

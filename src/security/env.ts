@@ -1,6 +1,6 @@
 import Env from '../helpers/Env.js';
 
-/** @public */
+/** @internal */
 const env = Env.getAll([
   Env.newSecret('CRYPTO_IV_HASH'),
   Env.newSecret('JWT_KEY'),
