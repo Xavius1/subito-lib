@@ -14,6 +14,7 @@ export { default as debugMode } from './helpers/debugMode.js';
 export { default as depreciate } from './helpers/depreciate.js';
 export { default as Env } from './helpers/Env.js';
 export { default as OpenTelemetry } from './helpers/OpenTelemetry.js';
+export { default as Subito } from './helpers/Subito.js';
 export { default as Thrower } from './helpers/Thrower.js';
 export { default as Token } from './helpers/Token.js';
 export { default as Toolbox } from './helpers/Toolbox.js';
@@ -40,3 +41,4 @@ export type {
 } from './helpers/Env.js';
 export type { IGraphqlClient, GraphqlClientProps, AuthInput } from './repositories/Graphql/GraphqlClient.js';
 export type { ILogger } from './repositories/Logger/Logger.js';
+export type { SubitoInput, Context, CommandOption } from './helpers/Subito.js';

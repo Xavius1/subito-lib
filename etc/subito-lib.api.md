@@ -51,6 +51,26 @@ export class Checker {
 }
 
 // @public (undocumented)
+export type CommandOption = {
+    name: string;
+    type: string;
+    short?: string | undefined;
+    description?: string | undefined;
+    example?: string | undefined;
+};
+
+// @public (undocumented)
+export type Context = {
+    dataSources: {
+        [key: string]: any;
+    };
+    services: {
+        [key: string]: any;
+    };
+    debug: boolean;
+};
+
+// @public (undocumented)
 export class Cryptor {
     constructor(key: string, version?: string);
     // (undocumented)
@@ -238,6 +258,30 @@ export type ParseType = 'Array' | 'Bool' | 'Float' | 'Int' | 'secret' | undefine
 
 // @public (undocumented)
 export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'FORCE_DEBUG' | 'PWD')];
+
+// @public
+export class Subito {
+    constructor(input: SubitoInput, commandOptions?: CommandOption | CommandOption[]);
+    // (undocumented)
+    commandOptions: {
+        [key: string]: any;
+    };
+    // (undocumented)
+    context: Context;
+    // @internal
+    protected readOptions(): this;
+}
+
+// @public (undocumented)
+export type SubitoInput = {
+    dataSources?: {
+        [key: string]: any;
+    };
+    services?: {
+        [key: string]: any;
+    };
+    debug?: boolean;
+};
 
 // @public (undocumented)
 export class Thrower {
