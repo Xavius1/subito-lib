@@ -4,11 +4,13 @@ import SERVICE_AUTH from './queries/SERVICE_AUTH.js';
 import e from '../../security/env.js';
 import Thrower from '../../helpers/Thrower.js';
 
+/** @public */
 export interface AuthInput {
   service: string,
   secret: string,
 }
 
+/** @public */
 export interface GraphqlContext {
   headers?: any,
   viewer?: any,
@@ -16,6 +18,7 @@ export interface GraphqlContext {
   gateway?: string,
 }
 
+/** @public */
 export interface IGraphqlClient {
   auth: Function
   execute: Function
@@ -23,6 +26,7 @@ export interface IGraphqlClient {
   getClientName: Function
 }
 
+/** @public */
 export type GraphqlClientProps = {
   endpoint?: string
   headers?: {

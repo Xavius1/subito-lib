@@ -1,12 +1,33 @@
 import Checker from './Checker.js';
 
+/**
+ * Some usefull tools
+ * @public
+ */
 class Toolbox {
+  /**
+   * Loop an array of async function
+   *
+   * @param array - The array of async functions
+   * @param callback - The callback
+   *
+   * @public
+   */
   static async asyncForEach<T = any>(array: T[], callback: Function) {
     for (let index = 0; index < array.length; index++) { // eslint-disable-line no-plusplus
       await callback(array[index], index, array); // eslint-disable-line no-await-in-loop
     }
   }
 
+  /**
+   * Return an intersection of 2 arrays
+   *
+   * @param arr1 - The first array
+   * @param arr2 - The second one
+   * @returns
+   *
+   * @public
+   */
   static intersection<T1 = any, T2 = any>(arr1: T1[], arr2: T2[]) {
     const checker = new Checker();
     checker.isArray(arr1);
@@ -29,6 +50,16 @@ class Toolbox {
     return result;
   }
 
+  /**
+   * Replace the key of an object to another one
+   *
+   * @param obj - The original object
+   * @param target - The key to replace
+   * @param replacement - The new key
+   * @returns
+   *
+   * @public
+   */
   static replaceJsonKeyPart(obj: any, target: string, replacement: string) {
     let newObj: any;
     if (Array.isArray(obj)) {

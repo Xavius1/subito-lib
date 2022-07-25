@@ -33,21 +33,18 @@ export class Calculator {
     static valueFromRate(value: number, rate: number): number;
 }
 
-// @public (undocumented)
+// @public
 export class Checker {
     constructor(toThrow?: boolean);
-    // (undocumented)
     isArray(arr: Array<any>): boolean;
-    // (undocumented)
     isEquals(obj: any, value: any): boolean;
-    // (undocumented)
     isExists(obj: any, name?: string): boolean;
-    // (undocumented)
     isIn(arr: any[], value: any, name?: string): boolean;
-    // (undocumented)
     isInstanceOf(obj: any, instance: any): boolean;
-    // (undocumented)
     isNotEmpty(arr: any[]): boolean;
+    protected send(message: string): boolean;
+    // (undocumented)
+    protected toThrow: boolean;
 }
 
 // @public (undocumented)
@@ -70,23 +67,18 @@ export type Context = {
     debug: boolean;
 };
 
-// @public (undocumented)
+// @public
 export class Cryptor {
     constructor(key: string, version?: string);
-    // (undocumented)
     decrypt(data: string): string;
-    // (undocumented)
     encrypt(data: any): EncryptData;
 }
 
-// @public (undocumented)
+// @public
 export class Data {
     constructor(value: any);
-    // (undocumented)
     NaNtoNull(): any;
-    // (undocumented)
     parseType(type: ParseType): any;
-    // (undocumented)
     ucfirst(): any;
 }
 
@@ -109,13 +101,13 @@ export class Datte {
     utc: Moment;
 }
 
-// @public (undocumented)
+// @public
 export const debugMode: () => any;
 
-// @public (undocumented)
+// @public
 export const depreciate: (oldMethod: string, newMethod: string) => void;
 
-// @public (undocumented)
+// @public
 export type EncryptData = {
     data: string;
     api: string;
@@ -223,7 +215,7 @@ export interface IGraphqlClient {
     setCustomHeaders: Function;
 }
 
-// @public (undocumented)
+// @alpha (undocumented)
 export interface ILogger {
     // (undocumented)
     newAccess(code: LoggerCode, message: string, input?: any, context?: any): any;
@@ -253,7 +245,7 @@ export class OpenTelemetry {
     record(): void;
 }
 
-// @public (undocumented)
+// @public
 export type ParseType = 'Array' | 'Bool' | 'Float' | 'Int' | 'secret' | undefined;
 
 // @public
@@ -295,13 +287,10 @@ export type SubitoInput = {
     debug?: boolean;
 };
 
-// @public (undocumented)
+// @public
 export class Thrower {
-    // (undocumented)
     static forbidden(): never;
-    // (undocumented)
     static generic(message: string): never;
-    // (undocumented)
     static unauthorized(): never;
 }
 
@@ -313,13 +302,10 @@ export class Token {
     static sign(data: Data_2, subject: string, expiresIn: number, key?: string): string;
 }
 
-// @public (undocumented)
+// @public
 export class Toolbox {
-    // (undocumented)
     static asyncForEach<T = any>(array: T[], callback: Function): Promise<void>;
-    // (undocumented)
     static intersection<T1 = any, T2 = any>(arr1: T1[], arr2: T2[]): any[];
-    // (undocumented)
     static replaceJsonKeyPart(obj: any, target: string, replacement: string): any;
 }
 

@@ -1,17 +1,20 @@
 import argv from 'argv';
 
+/** @public */
 export type SubitoInput = {
   dataSources?: { [key: string]: any }
   services?: { [key: string]: any }
   debug?: boolean
 }
 
+/** @public */
 export type Context = {
   dataSources: { [key: string]: any }
   services: { [key: string]: any }
   debug: boolean
 }
 
+/** @public */
 export type CommandOption = {
   name: string,
   type: string,

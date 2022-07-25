@@ -175,7 +175,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!AliasCustomConfig:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -200,7 +200,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "subito-lib!AuthInput:interface",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -587,7 +587,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Checker:class",
-          "docComment": "",
+          "docComment": "/**\n * Some helpers to check your data\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -633,7 +633,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Checker#isArray:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Verify if the data is an array, then throw if not\n *\n * @param arr - The array to verify\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -685,7 +685,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Checker#isEquals:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Verify if 2 objects are equals, then throw if not\n *\n * @param obj - The first object to compare\n *\n * @param value - The second one\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -748,7 +748,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Checker#isExists:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Verify if an object is defined, then throw if not\n *\n * @param obj - The object to verify\n *\n * @param name - Use to trace the name of the object in the error\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -811,7 +811,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Checker#isIn:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Verify if a value is in an array, then throw if not\n *\n * @param arr - The array\n *\n * @param value - The value needed\n *\n * @param name - Use to trace in the error\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -890,7 +890,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Checker#isInstanceOf:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Verify if an object is an instance of a specific type, then throw if not\n *\n * @param obj - The object to verify\n *\n * @param instance - The instance needed\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -953,7 +953,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Checker#isNotEmpty:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Verify if an array is not empty, then throw if it is\n *\n * @param arr - The array to verify\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -996,6 +996,82 @@
               ],
               "isOptional": false,
               "name": "isNotEmpty"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!Checker#send:member(1)",
+              "docComment": "/**\n * Throw an error or return false the checker is not instanciated with toThrow option\n *\n * @param message - The message to print\n *\n * @returns \n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected send(message: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": true,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "message",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "name": "send"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!Checker#toThrow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected toThrow: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "toThrow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
             }
           ],
           "implementsTokenRanges": []
@@ -1003,7 +1079,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!CommandOption:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1028,7 +1104,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!Context:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1053,7 +1129,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Cryptor:class",
-          "docComment": "",
+          "docComment": "/**\n * Handles data encryption into your app\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1115,7 +1191,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Cryptor#decrypt:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Decrypt an encrypted data\n *\n * @param data - The encrypted data\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1162,7 +1238,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Cryptor#encrypt:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Encrypt a data\n *\n * @param data - The data to encrypt\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1213,7 +1289,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Data:class",
-          "docComment": "",
+          "docComment": "/**\n * Handles some data stuff\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1259,7 +1335,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Data#NaNtoNull:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Transform a NaN value to null\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1289,7 +1365,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Data#parseType:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Parse data\n *\n * @param type - The format to parse\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1337,7 +1413,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Data#ucfirst:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Uppercase the first character of a string then lowercase the rest of it\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1663,7 +1739,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "subito-lib!debugMode:var",
-          "docComment": "",
+          "docComment": "/**\n * Define the debug mode based on APP_VALUE & FORCE_DEBUG values\n *\n * @returns \n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1685,7 +1761,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "subito-lib!depreciate:var",
-          "docComment": "",
+          "docComment": "/**\n * Print a depreciated warning to the console\n *\n * @param oldMethod - The name of the method to depreciated\n *\n * @param newMethod - The name of the new method to use as replacement\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1707,7 +1783,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EncryptData:type",
-          "docComment": "",
+          "docComment": "/**\n * The data object to encrypt\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1732,7 +1808,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "subito-lib!env:var",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1782,7 +1858,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvConfig:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1825,7 +1901,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvCustomConfig:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1859,7 +1935,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvRecipe:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1893,7 +1969,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvRecipes:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1923,7 +1999,7 @@
         {
           "kind": "Enum",
           "canonicalReference": "subito-lib!EnvType:enum",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2002,7 +2078,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvVars:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2610,7 +2686,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!GraphqlClientProps:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2635,7 +2711,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "subito-lib!IGraphqlClient:interface",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -2762,459 +2838,6 @@
           "extendsTokenRanges": []
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "subito-lib!ILogger:interface",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface ILogger "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ILogger",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#newAccess:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "newAccess(code: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "LoggerCode",
-                  "canonicalReference": "subito-lib!~LoggerCode:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", message: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", input?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", context?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isOptional": false,
-              "returnTypeTokenRange": {
-                "startIndex": 9,
-                "endIndex": 10
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "code",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "message",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 3,
-                    "endIndex": 4
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "input",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 5,
-                    "endIndex": 6
-                  },
-                  "isOptional": true
-                },
-                {
-                  "parameterName": "context",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 7,
-                    "endIndex": 8
-                  },
-                  "isOptional": true
-                }
-              ],
-              "name": "newAccess"
-            },
-            {
-              "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#newError:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "newError(code: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "LoggerCode",
-                  "canonicalReference": "subito-lib!~LoggerCode:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", message: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", input?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", context?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isOptional": false,
-              "returnTypeTokenRange": {
-                "startIndex": 9,
-                "endIndex": 10
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "code",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "message",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 3,
-                    "endIndex": 4
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "input",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 5,
-                    "endIndex": 6
-                  },
-                  "isOptional": true
-                },
-                {
-                  "parameterName": "context",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 7,
-                    "endIndex": 8
-                  },
-                  "isOptional": true
-                }
-              ],
-              "name": "newError"
-            },
-            {
-              "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#newInfo:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "newInfo(message: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", context: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isOptional": false,
-              "returnTypeTokenRange": {
-                "startIndex": 5,
-                "endIndex": 6
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "message",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "context",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 3,
-                    "endIndex": 4
-                  },
-                  "isOptional": false
-                }
-              ],
-              "name": "newInfo"
-            },
-            {
-              "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#newWarning:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "newWarning(code: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "LoggerCode",
-                  "canonicalReference": "subito-lib!~LoggerCode:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", message: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", input?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ", context?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isOptional": false,
-              "returnTypeTokenRange": {
-                "startIndex": 9,
-                "endIndex": 10
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "code",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "message",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 3,
-                    "endIndex": 4
-                  },
-                  "isOptional": false
-                },
-                {
-                  "parameterName": "input",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 5,
-                    "endIndex": 6
-                  },
-                  "isOptional": true
-                },
-                {
-                  "parameterName": "context",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 7,
-                    "endIndex": 8
-                  },
-                  "isOptional": true
-                }
-              ],
-              "name": "newWarning"
-            },
-            {
-              "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#setContext:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "setContext(context: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "any"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ILogger",
-                  "canonicalReference": "subito-lib!ILogger:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isOptional": false,
-              "returnTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "context",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                }
-              ],
-              "name": "setContext"
-            },
-            {
-              "kind": "MethodSignature",
-              "canonicalReference": "subito-lib!ILogger#setGraphql:member(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "setGraphql(gateway: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IGraphqlClient",
-                  "canonicalReference": "subito-lib!IGraphqlClient:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": "): "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ILogger",
-                  "canonicalReference": "subito-lib!ILogger:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isOptional": false,
-              "returnTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [
-                {
-                  "parameterName": "gateway",
-                  "parameterTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  },
-                  "isOptional": false
-                }
-              ],
-              "name": "setGraphql"
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
           "kind": "Variable",
           "canonicalReference": "subito-lib!Logger:var",
           "docComment": "",
@@ -3320,7 +2943,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!ParseType:type",
-          "docComment": "",
+          "docComment": "/**\n * The parse types\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3396,7 +3019,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!ReservedEnvVar:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3611,7 +3234,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!SubitoInput:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3636,7 +3259,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Thrower:class",
-          "docComment": "",
+          "docComment": "/**\n * Aliases to throw some specifics errors\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3650,7 +3273,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Thrower.forbidden:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Throw a forbidden error\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3680,7 +3303,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Thrower.generic:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Throw a generic error\n *\n * @param message - The message to print\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3727,7 +3350,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Thrower.unauthorized:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Throw an unauthorized error\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3946,7 +3569,7 @@
         {
           "kind": "Class",
           "canonicalReference": "subito-lib!Toolbox:class",
-          "docComment": "",
+          "docComment": "/**\n * Some usefull tools\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3960,7 +3583,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Toolbox.asyncForEach:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Loop an array of async function\n *\n * @param array - The array of async functions\n *\n * @param callback - The callback\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -4050,7 +3673,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Toolbox.intersection:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Return an intersection of 2 arrays\n *\n * @param arr1 - The first array\n *\n * @param arr2 - The second one\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -4153,7 +3776,7 @@
             {
               "kind": "Method",
               "canonicalReference": "subito-lib!Toolbox.replaceJsonKeyPart:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Replace the key of an object to another one\n *\n * @param obj - The original object\n *\n * @param target - The key to replace\n *\n * @param replacement - The new key\n *\n * @returns \n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

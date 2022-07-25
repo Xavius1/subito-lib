@@ -9,11 +9,19 @@ const ivHashes: IvHashes = {
   '1.0': e.CRYPTO_IV_HASH,
 };
 
+/**
+ * The data object to encrypt
+ * @public
+ */
 export type EncryptData = {
   data: string,
   api: string
 }
 
+/**
+ * Handles data encryption into your app
+ * @public
+ */
 class Cryptor {
   private version: string;
 
@@ -37,6 +45,13 @@ class Cryptor {
       .digest();
   }
 
+  /**
+   * Encrypt a data
+   * @param data - The data to encrypt
+   * @returns
+   *
+   * @public
+   */
   encrypt(data: any): EncryptData {
     const cipher = crypto.createCipheriv('aes-256-gcm', this.key, this.resizedIV);
     let theCipher = cipher.update(data, 'binary', 'hex');
@@ -47,6 +62,13 @@ class Cryptor {
     };
   }
 
+  /**
+   * Decrypt an encrypted data
+   * @param data - The encrypted data
+   * @returns
+   *
+   * @public
+   */
   decrypt(data: string): string {
     const [str, tag, iv] = data.split('_');
     const decipher = crypto.createDecipheriv('aes-256-gcm', this.key, Buffer.from(iv, 'hex'));

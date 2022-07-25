@@ -5,12 +5,14 @@ import type { ParseType } from './Data.js';
 
 const checker = new Checker(true);
 
+/** @public */
 export enum EnvType {
   SECRET,
   ENV,
   VAR
 }
 
+/** @public */
 type SecretEnv = { type?: EnvType, defaultValue: string }
 
 /**
@@ -22,6 +24,7 @@ const ensureSecretEnv = function ensureSecretEnv({ type, defaultValue }: SecretE
   }
 };
 
+/** @public */
 type DefineEnv = { name: string, type: EnvType, defaultValue: any, fallback?: string }
 
 /**
@@ -56,22 +59,29 @@ const defineEnv = function defineEnv(args: DefineEnv) {
   return value;
 };
 
+/** @public */
 export type EnvCustomConfig = {
   allow?: any[], parseType?: ParseType, defaultValue: any, fallback?: string,
 }
 
+/** @public */
 export type AliasCustomConfig = {
   allow?: any[], defaultValue: any, fallback?: string,
 }
 
+/** @public */
 export type EnvConfig = {
   allow?: any[], type: EnvType, parseType?: ParseType, defaultValue: any, fallback?: string,
 }
 
+/** @public */
 export type ReservedEnvVar = [('APP_ENV' | 'NODE_ENV' | 'FORCE_DEBUG' | 'PWD')];
+/** @public */
 export type EnvRecipe = [string, EnvConfig];
+/** @public */
 export type EnvRecipes = EnvRecipe[];
 
+/** @public */
 export type EnvVars = {
   _recipes: EnvRecipes,
   _defaultValues: { [key: string]: any },

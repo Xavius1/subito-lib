@@ -10,6 +10,7 @@ const getTraceStack = function getTraceStack() {
 
 type LoggerCode = string | number | null
 
+/** @alpha */
 export interface ILogger {
   setGraphql(gateway: IGraphqlClient): ILogger
   setContext(context: any): ILogger
@@ -19,6 +20,7 @@ export interface ILogger {
   newAccess(code: LoggerCode, message: string, input?: any, context?: any): any
 }
 
+/** @alpha */
 export class Logger implements ILogger {
   private gateway?: IGraphqlClient;
 
