@@ -61,7 +61,7 @@
     "@opentelemetry/sdk-trace-base": "1.0.1",
     "@opentelemetry/sdk-trace-node": "1.0.1",
     "argv": "0.0.2",
-    "graphql-request": "^4.1.0",
+    "graphql-request": "^5.0.0",
     "jsonwebtoken": "8.5.1",
     "moment-timezone": "0.5.37",
     "moment-with-locales-es6": "1.0.1"
