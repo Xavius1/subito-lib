@@ -19,8 +19,16 @@
     "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
     "start": "npm run compile-js && NODE_ENV=production node lib/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Xavius1/subito-lib.git"
+  },
   "author": "Xavius",
   "license": "EUPL-1.2",
+  "bugs": {
+    "url": "https://github.com/Xavius1/subito-lib/issues"
+  },
+  "homepage": "https://github.com/Xavius1/subito-lib#readme",
   "devDependencies": {
     "@tsconfig/node16": "1.0.3",
     "@types/argv": "0.0.5",
