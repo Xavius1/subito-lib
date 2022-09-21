@@ -10,7 +10,7 @@ These vars are automatically available into your micro-service.
 | APP_ENV | env | local | local, current, develop, integration, staging, production | true |
 | CRYPTO_IV_HASH | secret | dev |  |  |
 | DEFAULT_TIMEZONE | var | Europe/Paris |  |  |
-| DEFAULT_LOCALE | var | fr |  | false |
+| DEFAULT_LOCALE | var | fr |  |  |
 | DEFAULT_DATE_FORMAT | var | YYYY-MM-DDTHH:mm:ss.SSS |  |  |
 | INTERNAL_GRAPHQL_ENDPOINT | env | <http://graphql-endpoint/> |  | true |
 | FORCE_DEBUG | var(bool) | false |  | true |
