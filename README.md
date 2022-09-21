@@ -3,10 +3,10 @@
 This package define & use theses following envs:
 | NAME | type | default value | allowed values | immutable |
 | ---- | ---- | ------------- | -------------- | --------- |
-<!-- | APP_ENV | env | local | <local, current, develop, integration, staging, production> | true | -->
-| CRYPTO_IV_HASH | secret | dev |  | false |
+| APP_ENV | env | local | <local, current, develop, integration, staging, production> | true |
+| CRYPTO_IV_HASH | secret | dev | N/A | false |
 | DEFAULT_TIMEZONE | var | Europe/Paris |  | false |
-| DEFAULT_LOCALE | var | fr |  | false |
+| DEFAULT_LOCALE | var | fr | N/A | false |
 | DEFAULT_DATE_FORMAT | var | YYYY-MM-DDTHH:mm:ss.SSS |  | false |
 | INTERNAL_GRAPHQL_ENDPOINT | env | <http://graphql-endpoint/> |  | true |
 <!-- | FORCE_DEBUG | var(bool) | false |  | true | -->
