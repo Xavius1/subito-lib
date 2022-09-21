@@ -1,4 +1,4 @@
-[Documentation](https://github.com/Xavius1/subito-doc/blob/master/doc/index.md)
+[API Documentation](https://github.com/Xavius1/subito-doc/blob/main/doc/index.md)
 
 This package define & use theses following envs:
 | NAME | type | default value | allowed values | immutable |
