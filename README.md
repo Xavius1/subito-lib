@@ -1,6 +1,8 @@
 [API Documentation](https://github.com/Xavius1/subito-doc/blob/main/doc/index.md)
 
-This package define & use theses following envs:
+This package define & use theses following env vars.
+These vars are automatically available into your micro-service.
+
 | NAME | type | default value | allowed values | immutable |
 | ---- | ---- | ------------- | -------------- | --------- |
 | APP_ENV | env | local | local, current, develop, integration, staging, production | true |
@@ -16,4 +18,3 @@ This package define & use theses following envs:
 | SERVICE_AUTH_KEY | secret | dev |  | true |
 | TOKEN_MAX_VALIDITY | var(int) | 7 |  |  |
 | TOKEN_VALIDITY_DEV | var(int) | 1 |  |  |
- 
