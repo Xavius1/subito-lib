@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/v/subito-lib?style=for-the-badge) ![NPM](https://img.shields.io/npm/l/subito-lib?color=blue&style=for-the-badge)
+
 [API Documentation](https://github.com/Xavius1/subito-doc/blob/main/doc/index.md)
 
 This package define & use theses following env vars.
