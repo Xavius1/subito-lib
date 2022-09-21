@@ -4,6 +4,8 @@ import Env from '../helpers/Env.js';
 const env = Env.getAll([
   Env.newSecret('CRYPTO_IV_HASH'),
   Env.newSecret('JWT_KEY'),
+  Env.newSecret('SERVICE_AUTH_KEY'),
+  Env.newEnv('INTERNAL_GRAPHQL_ENDPOINT', { defaultValue: 'http://endpoint' }),
   Env.newInt('TOKEN_MAX_VALIDITY', { defaultValue: 7 }),
   Env.newInt('TOKEN_VALIDITY_DEV', { defaultValue: 1 }),
   Env.newVar('DEFAULT_TIMEZONE', { defaultValue: 'Europe/Paris' }),

@@ -27,6 +27,11 @@ describe('env.js', () => {
     expect(e._defaultValues.DEFAULT_DATE_FORMAT) // eslint-disable-line no-underscore-dangle
       .toBe('YYYY-MM-DDTHH:mm:ss.SSS');
   });
+  // INTERNAL_GRAPHQL_ENDPOINT
+  test('INTERNAL_GRAPHQL_ENDPOINT default value should be', () => {
+    expect(e._defaultValues.INTERNAL_GRAPHQL_ENDPOINT) // eslint-disable-line no-underscore-dangle
+      .toBe('http://endpoint');
+  });
   // CRYPTO_IV_HASH
   test('CRYPTO_IV_HASH type should be', () => {
     expect(e._types.CRYPTO_IV_HASH) // eslint-disable-line no-underscore-dangle
@@ -35,6 +40,11 @@ describe('env.js', () => {
   // JWT_KEY
   test('JWT_KEY type should be', () => {
     expect(e._types.JWT_KEY) // eslint-disable-line no-underscore-dangle
+      .toBe(EnvType.SECRET);
+  });
+  // SERVICE_AUTH_KEY
+  test('SERVICE_AUTH_KEY type should be', () => {
+    expect(e._types.SERVICE_AUTH_KEY) // eslint-disable-line no-underscore-dangle
       .toBe(EnvType.SECRET);
   });
 });
