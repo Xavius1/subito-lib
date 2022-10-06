@@ -1806,29 +1806,6 @@
           }
         },
         {
-          "kind": "Variable",
-          "canonicalReference": "subito-lib!Env:var",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "_default: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Env",
-              "canonicalReference": "subito-lib!~Env:class"
-            }
-          ],
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "Env",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 2
-          }
-        },
-        {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvConfig:type",
           "docComment": "/**\n * @public\n */\n",
@@ -3064,6 +3041,37 @@
             }
           ],
           "implementsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "subito-lib!sleep:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "sleep: "
+            },
+            {
+              "kind": "Content",
+              "text": "(delay: number) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>"
+            }
+          ],
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "sleep",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
         },
         {
           "kind": "Class",
