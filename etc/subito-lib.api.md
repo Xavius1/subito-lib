@@ -116,14 +116,15 @@ export type EncryptData = {
     api: string;
 };
 
-// @internal (undocumented)
-const env: EnvVars;
-
-// Warning: (ae-internal-missing-underscore) The name "Env" should be prefixed with an underscore because the declaration is marked as @internal
-export { env as Env }
+// Warning: (ae-forgotten-export) The symbol "Env" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const Env: Env_2;
 
 // Warning: (ae-internal-missing-underscore) The name "env" should be prefixed with an underscore because the declaration is marked as @internal
-export { env }
+//
+// @internal (undocumented)
+export const env: EnvVars;
 
 // @public (undocumented)
 export type EnvConfig = {
@@ -267,7 +268,7 @@ export abstract class Service {
     protected context: Context | undefined;
 }
 
-// @public (undocumented)
+// @public
 export const sleep: (delay: number) => Promise<unknown>;
 
 // @public

@@ -1806,6 +1806,29 @@
           }
         },
         {
+          "kind": "Variable",
+          "canonicalReference": "subito-lib!Env:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "_default: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Env",
+              "canonicalReference": "subito-lib!~Env:class"
+            }
+          ],
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "Env",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!EnvConfig:type",
           "docComment": "/**\n * @public\n */\n",
@@ -3045,7 +3068,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "subito-lib!sleep:var",
-          "docComment": "",
+          "docComment": "/**\n * Sleep your execution\n *\n * @param delay - Your delay in ms\n *\n * @returns \n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

@@ -12,7 +12,7 @@ export { default as Data } from './helpers/Data.js';
 export { default as Datte } from './helpers/Datte.js';
 export { default as debugMode } from './helpers/debugMode.js';
 export { default as depreciate } from './helpers/depreciate.js';
-export { default as Env } from './security/env.js';
+export { default as Env } from './helpers/Env.js';
 export { default as OpenTelemetry } from './helpers/OpenTelemetry.js';
 export { default as Repository } from './helpers/Repository.js';
 export { default as Service } from './helpers/Service.js';
