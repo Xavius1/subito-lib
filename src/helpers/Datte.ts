@@ -2,6 +2,9 @@ import moment from 'moment-with-locales-es6';
 import momenttz, { Moment } from 'moment-timezone';
 import e from '../security/env.js';
 
+// Dirtyfix, why when use in dependents moment is not exported as default ?
+const mm = (moment.default) ? moment.default : moment;
+
 /**
  * Class to normalize date usage (WIP)
  *
@@ -58,8 +61,8 @@ class Datte {
    * @public
    */
   toString(format: string = e.DEFAULT_DATE_FORMAT) {
-    moment.locale(this.locale);
-    return moment(
+    mm.locale(this.locale);
+    return mm(
       this.utc.format(format),
     ).format(format);
   }
@@ -73,9 +76,9 @@ class Datte {
    * @public
    */
   toLocalString(format: string = e.DEFAULT_DATE_FORMAT) {
-    moment.locale(this.locale);
+    mm.locale(this.locale);
     // return new Date(this.utc.tz(this.tz).format('YYYY-MM-DDTHH:mm:ss.SSS'));
-    return moment(
+    return mm(
       new Date(this.utc.tz(this.tz).format('YYYY-MM-DDTHH:mm:ss.SSS')),
     ).format(format);
   }
