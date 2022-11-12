@@ -17,6 +17,8 @@ class Datte {
 
   protected locale: string | null = null;
 
+  protected unix = /^([0-9]{13})$/;
+
   constructor({
     date,
     locale = e.DEFAULT_LOCALE,
@@ -25,7 +27,11 @@ class Datte {
     momenttz.tz.setDefault('UTC');
     this.tz = tz;
     this.locale = locale;
-    this.utc = momenttz.utc(date);
+    if (date && this.unix.exec(date)) {
+      this.utc = momenttz.utc(moment.unix(date));
+    } else {
+      this.utc = momenttz.utc(date);
+    }
   }
 
   /**
@@ -62,9 +68,11 @@ class Datte {
    */
   toString(format: string = e.DEFAULT_DATE_FORMAT) {
     mm.locale(this.locale);
-    return mm(
-      this.utc.format(format),
-    ).format(format);
+    const utc = this.utc.format(format);
+    if (this.unix.exec(utc)) {
+      return mm.unix(utc).format(format);
+    }
+    return mm(utc).format(format);
   }
 
   /**
