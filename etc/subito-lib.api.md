@@ -101,6 +101,8 @@ export class Datte {
     // (undocumented)
     protected tz: string;
     // (undocumented)
+    protected unix: RegExp;
+    // (undocumented)
     utc: Moment;
 }
 

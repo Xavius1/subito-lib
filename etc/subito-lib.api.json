@@ -1705,6 +1705,36 @@
             },
             {
               "kind": "Property",
+              "canonicalReference": "subito-lib!Datte#unix:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected unix: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RegExp",
+                  "canonicalReference": "!RegExp:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "unix",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
+            },
+            {
+              "kind": "Property",
               "canonicalReference": "subito-lib!Datte#utc:member",
               "docComment": "",
               "excerptTokens": [
