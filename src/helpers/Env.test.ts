@@ -46,6 +46,15 @@ describe('Env', () => {
     expect(Env.getAll()._types.PWD) // eslint-disable-line no-underscore-dangle
       .toBe(EnvType.ENV);
   });
+  // RBD
+  test('RBD value should be', () => {
+    expect(Env.getAll()._defaultValues.RBD) // eslint-disable-line no-underscore-dangle
+      .toBe('./lib');
+  });
+  test('RBD type should be', () => {
+    expect(Env.getAll()._types.RBD) // eslint-disable-line no-underscore-dangle
+      .toBe(EnvType.ENV);
+  });
   // INTERNAL_GRAPHQL_ENDPOINT
   test('INTERNAL_GRAPHQL_ENDPOINT value should be', () => {
     expect(Env.getAll()._defaultValues.INTERNAL_GRAPHQL_ENDPOINT) // eslint-disable-line no-underscore-dangle, max-len

@@ -119,6 +119,10 @@ class Env {
      */
     ['PWD', { type: EnvType.ENV, defaultValue: '/app' }],
     /**
+     * Relative build directory
+     */
+    ['RBD', { type: EnvType.ENV, defaultValue: './lib' }],
+    /**
      * Your micro services should use an internal endpoint instead of the client endpoint.
      * Use this var to get the endpoint address.
      */
