@@ -179,7 +179,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type AliasCustomConfig = "
+              "text": "export type AliasCustomConfig = "
             },
             {
               "kind": "Content",
@@ -1083,7 +1083,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type CommandOption = "
+              "text": "export type CommandOption = "
             },
             {
               "kind": "Content",
@@ -1108,7 +1108,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Context = "
+              "text": "export type Context = "
             },
             {
               "kind": "Content",
@@ -1817,7 +1817,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EncryptData = "
+              "text": "export type EncryptData = "
             },
             {
               "kind": "Content",
@@ -1865,7 +1865,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvConfig = "
+              "text": "export type EnvConfig = "
             },
             {
               "kind": "Content",
@@ -1908,7 +1908,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvCustomConfig = "
+              "text": "export type EnvCustomConfig = "
             },
             {
               "kind": "Content",
@@ -1942,7 +1942,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvRecipe = "
+              "text": "export type EnvRecipe = "
             },
             {
               "kind": "Content",
@@ -1976,7 +1976,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvRecipes = "
+              "text": "export type EnvRecipes = "
             },
             {
               "kind": "Reference",
@@ -2085,7 +2085,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type EnvVars = "
+              "text": "export type EnvVars = "
             },
             {
               "kind": "Content",
@@ -2693,7 +2693,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type GraphqlClientProps = "
+              "text": "export type GraphqlClientProps = "
             },
             {
               "kind": "Content",
@@ -2950,7 +2950,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ParseType = "
+              "text": "export type ParseType = "
             },
             {
               "kind": "Content",
@@ -3026,7 +3026,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ReservedEnvVar = "
+              "text": "export type ReservedEnvVar = "
             },
             {
               "kind": "Content",
@@ -3243,7 +3243,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type SubitoInput = "
+              "text": "export type SubitoInput = "
             },
             {
               "kind": "Content",
