@@ -2706,6 +2706,54 @@
               "name": "setExpirationDate"
             },
             {
+              "kind": "Method",
+              "canonicalReference": "subito-lib!GraphqlClient#setViewerToken:member(1)",
+              "docComment": "/**\n * Set viewer token\n *\n * @param token - The viewer token to add\n *\n * @returns \n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "setViewerToken(token: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GraphqlClient",
+                  "canonicalReference": "subito-lib!~GraphqlClient:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "token",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "name": "setViewerToken"
+            },
+            {
               "kind": "Property",
               "canonicalReference": "subito-lib!GraphqlClient#token:member",
               "docComment": "/**\n * The auth token\n *\n * @public\n */\n",
@@ -2727,6 +2775,35 @@
               "isOptional": true,
               "releaseTag": "Public",
               "name": "token",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": true
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "subito-lib!GraphqlClient#viewerToken:member",
+              "docComment": "/**\n * The auth viewer token\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected viewerToken?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "viewerToken",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

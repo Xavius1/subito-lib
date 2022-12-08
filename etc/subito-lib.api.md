@@ -207,7 +207,9 @@ export class GraphqlClient implements IGraphqlClient {
     protected setAuthHeaders(): GraphqlClient;
     setCustomHeaders(headers: Headers_2): GraphqlClient;
     protected setExpirationDate(date: Date): GraphqlClient;
+    setViewerToken(token: string): GraphqlClient;
     protected token?: string | null;
+    protected viewerToken?: string | null;
 }
 
 // @public (undocumented)

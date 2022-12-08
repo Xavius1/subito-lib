@@ -67,6 +67,12 @@ class GraphqlClient implements IGraphqlClient {
   protected token?: string | null;
 
   /**
+   * The auth viewer token
+   * @public
+   */
+  protected viewerToken?: string | null;
+
+  /**
    * The token expiration date
    * @public
    */
@@ -153,7 +159,22 @@ class GraphqlClient implements IGraphqlClient {
   protected setAuthHeaders(): GraphqlClient {
     this.client
       .setHeader('x-app-token', `Bearer ${this.token}`)
-      .setHeader('authorization', `Bearer ${this.token}`);
+      .setHeader('authorization', `Bearer ${this.viewerToken}`);
+
+    return this;
+  }
+
+  /**
+   * Set viewer token
+   *
+   * @param token - The viewer token to add
+   * @returns
+   *
+   * @public
+   */
+  setViewerToken(token: string): GraphqlClient {
+    this.viewerToken = token;
+    this.setAuthHeaders();
 
     return this;
   }
