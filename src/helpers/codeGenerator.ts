@@ -32,8 +32,22 @@ const codeGenerator = (
   );
 
   let code = '';
+  const used: { [key: string]: number } = {};
   for (let i = 0; i < length; i += 1) {
-    code = `${code}${shuffle(chars)[0]}`;
+    let selectedChar = null;
+    while (selectedChar === null) {
+      const char = <number | string>shuffle(chars)[0]; // eslint-disable-line prefer-destructuring
+      if (!used[char] || used[char] < 2) {
+        selectedChar = char;
+        if (!used[char]) {
+          used[char] = 1;
+        } else {
+          used[char] = 2;
+        }
+      }
+    }
+
+    code = `${code}${selectedChar}`;
   }
 
   return code;
