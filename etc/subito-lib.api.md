@@ -232,6 +232,8 @@ export interface IGraphqlClient {
     getClientName: Function;
     // (undocumented)
     setCustomHeaders: Function;
+    // (undocumented)
+    setViewerToken: Function;
 }
 
 // @alpha (undocumented)

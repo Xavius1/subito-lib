@@ -23,6 +23,7 @@ export interface IGraphqlClient {
   auth: Function
   execute: Function
   setCustomHeaders: Function
+  setViewerToken: Function
   getClientName: Function
 }
 
