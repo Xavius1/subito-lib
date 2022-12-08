@@ -66,7 +66,8 @@ class Token {
    */
   static read(token: string, { key = e.JWT_KEY, endpoint }: ReadOptions = {}) {
     try {
-      const data = <JwtPayload>jwt.verify(token.replace(/^Bearer\s+/, ''), key);
+      const simpleToken = token.replace(/^Bearer\s+/, '');
+      const data = <JwtPayload>jwt.verify(simpleToken, key);
       /**
        * For security reason, your token should always have the endpoint that created it.
        * Then your token could only be use on that endpoint
@@ -75,7 +76,7 @@ class Token {
         return null;
       }
 
-      return { ...data, token };
+      return { ...data, token: simpleToken };
     } catch (err: any) {
       return null;
     }
