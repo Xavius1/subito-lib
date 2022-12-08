@@ -47,6 +47,16 @@ export class Checker {
     protected toThrow: boolean;
 }
 
+// @public
+export const codeGenerator: (input?: CodeGeneratorInput) => string;
+
+// @public (undocumented)
+export type CodeGeneratorInput = {
+    length?: number;
+    alphanumeric?: boolean;
+    entropy?: 1 | 2;
+};
+
 // @public (undocumented)
 export type CommandOption = {
     name: string;
@@ -269,6 +279,9 @@ export abstract class Service {
     // (undocumented)
     protected context: Context | undefined;
 }
+
+// @public
+export function shuffle(items: unknown[]): unknown[];
 
 // @public
 export const sleep: (delay: number) => Promise<unknown>;

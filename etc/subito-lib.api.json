@@ -1077,6 +1077,62 @@
           "implementsTokenRanges": []
         },
         {
+          "kind": "Variable",
+          "canonicalReference": "subito-lib!codeGenerator:var",
+          "docComment": "/**\n * Generate a random code\n *\n * @param input - Your input\n *\n * @returns \n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "codeGenerator: "
+            },
+            {
+              "kind": "Content",
+              "text": "(input?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "CodeGeneratorInput",
+              "canonicalReference": "subito-lib!CodeGeneratorInput:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => string"
+            }
+          ],
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "codeGenerator",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "subito-lib!CodeGeneratorInput:type",
+          "docComment": "/**\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type CodeGeneratorInput = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    length?: number;\n    alphanumeric?: boolean;\n    entropy?: 1 | 2;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "CodeGeneratorInput",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "subito-lib!CommandOption:type",
           "docComment": "/**\n * @public\n */\n",
@@ -3094,6 +3150,50 @@
             }
           ],
           "implementsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "subito-lib!shuffle:function(1)",
+          "docComment": "/**\n * Suffle the items of an array\n *\n * @param items - The items to shuffle\n *\n * @returns \n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function shuffle(items: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown[]"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown[]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "items",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "shuffle"
         },
         {
           "kind": "Variable",
