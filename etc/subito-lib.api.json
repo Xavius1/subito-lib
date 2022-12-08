@@ -3632,16 +3632,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "jwt."
-                },
-                {
-                  "kind": "Reference",
-                  "text": "JwtPayload",
-                  "canonicalReference": "@types/jsonwebtoken!JwtPayload:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": " | null"
+                  "text": "{\n        token: string;\n        iss?: string | undefined;\n        sub?: string | undefined;\n        aud?: string | string[] | undefined;\n        exp?: number | undefined;\n        nbf?: number | undefined;\n        iat?: number | undefined;\n        jti?: string | undefined;\n    } | null"
                 },
                 {
                   "kind": "Content",
@@ -3651,7 +3642,7 @@
               "isStatic": true,
               "returnTypeTokenRange": {
                 "startIndex": 5,
-                "endIndex": 8
+                "endIndex": 6
               },
               "releaseTag": "Public",
               "isProtected": false,

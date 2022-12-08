@@ -6,7 +6,6 @@
 
 import { GraphQLClient } from 'graphql-request';
 import { Headers as Headers_2 } from 'graphql-request/dist/types.dom';
-import jwt from 'jsonwebtoken';
 import { Moment } from 'moment-timezone';
 
 // @public (undocumented)
@@ -320,7 +319,16 @@ export class Thrower {
 // @public
 export class Token {
     // Warning: (ae-forgotten-export) The symbol "ReadOptions" needs to be exported by the entry point index.d.ts
-    static read(token: string, { key, endpoint }?: ReadOptions): jwt.JwtPayload | null;
+    static read(token: string, { key, endpoint }?: ReadOptions): {
+        token: string;
+        iss?: string | undefined;
+        sub?: string | undefined;
+        aud?: string | string[] | undefined;
+        exp?: number | undefined;
+        nbf?: number | undefined;
+        iat?: number | undefined;
+        jti?: string | undefined;
+    } | null;
     // Warning: (ae-forgotten-export) The symbol "Data" needs to be exported by the entry point index.d.ts
     static sign(data: Data_2, subject: string, expiresIn: number, key?: string): string;
 }
