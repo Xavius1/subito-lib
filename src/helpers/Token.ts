@@ -76,7 +76,7 @@ class Token {
         return null;
       }
 
-      return { ...data, token };
+      return { ...data, token: simpleToken };
     } catch (err: any) {
       return null;
     }
