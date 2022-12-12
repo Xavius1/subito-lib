@@ -50,7 +50,7 @@ const codeGenerator = (
     code = `${code}${selectedChar}`;
   }
 
-  return code;
+  return alphanumeric ? code : parseFloat(code);
 };
 
 export default codeGenerator;

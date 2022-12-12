@@ -47,7 +47,7 @@ export class Checker {
 }
 
 // @public
-export const codeGenerator: (input?: CodeGeneratorInput) => string;
+export const codeGenerator: (input?: CodeGeneratorInput) => string | number;
 
 // @public (undocumented)
 export type CodeGeneratorInput = {
