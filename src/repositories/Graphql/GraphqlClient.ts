@@ -158,9 +158,11 @@ class GraphqlClient implements IGraphqlClient {
    * @public
    */
   protected setAuthHeaders(): GraphqlClient {
-    this.client
-      .setHeader('x-app-token', `Bearer ${this.token}`)
-      .setHeader('authorization', `Bearer ${this.viewerToken}`);
+    this.client.setHeader('x-app-token', `Bearer ${this.token}`);
+
+    if (this.viewerToken) {
+      this.client.setHeader('authorization', `Bearer ${this.viewerToken}`);
+    }
 
     return this;
   }
