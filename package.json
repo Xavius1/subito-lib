@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "graphql-request": "^4.1.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.2"
   }
 }
