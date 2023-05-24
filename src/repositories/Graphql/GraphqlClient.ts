@@ -126,7 +126,7 @@ class GraphqlClient implements IGraphqlClient {
         d = new Date(auth.expirationDate);
       }
       this.setExpirationDate(d);
-
+      this.setAuthHeaders();
       return { success, auth };
     } catch (err) {
       this
