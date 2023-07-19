@@ -70,6 +70,24 @@ class Checker {
   }
 
   /**
+   * Check if the given value/object is **NOT** `null` nor `undefined`, then throw if not
+   *
+   * @param obj - The first object to compare.
+   * @param name - A name to include in the error message.
+   * @throws Error - If the given value is either `null` or `undefined`
+   * @returns
+   *
+   * @public
+   */
+  isDefined(obj: any, name: string = ''): boolean {
+    if (obj === undefined || obj === null) {
+      return this.send(`ERR_NEED_DEFINED_OBJ ${name})`);
+    }
+
+    return true;
+  }
+
+  /**
    * Verify if an object is defined, then throw if not
    *
    * @param obj - The object to verify
