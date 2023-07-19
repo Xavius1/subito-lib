@@ -153,7 +153,7 @@ class Env {
     value = data.parseType(parseType);
 
     if (parseType !== 'Bool') {
-      checker.isExists(value, name);
+      checker.isDefined(value, name);
     }
     if (allow) {
       checker.isIn(allow, value, name);
