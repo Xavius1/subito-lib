@@ -3,7 +3,7 @@ import debugMode from './debugMode.js';
 
 // #region Types
 
-interface DeprecationLogger{
+interface DeprecationLogger {
   warn(msg: string, ...data:any): void;
 }
 
