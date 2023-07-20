@@ -20,7 +20,7 @@ let deprecateLogger: DeprecationLogger = {
 /**
  * Change the default logger (console) by a custom logger.
  *
- * @param {object} logger - A logger to replace console. The only requirement is
+ * @param logger - A logger to replace console. The only requirement is
  * that it must implement a warn method.
  */
 export function setLogger(logger: DeprecationLogger) {
