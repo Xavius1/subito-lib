@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Xavius1/subito-lib#readme",
   "devDependencies": {
-    "@tsconfig/node16": "1.0.3",
+    "@tsconfig/node16": "1.0.4",
     "@types/argv": "0.0.5",
     "@types/jest": "28.1.8",
     "@types/jsonwebtoken": "8.5.9",
