@@ -33,7 +33,7 @@
     "@tsconfig/node16": "1.0.4",
     "@types/argv": "0.0.5",
     "@types/jest": "28.1.8",
-    "@types/jsonwebtoken": "8.5.9",
+    "@types/jsonwebtoken": "9.0.7",
     "@types/node": "17.0.45",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
@@ -70,7 +70,7 @@
     "@opentelemetry/sdk-trace-node": "1.6.0",
     "argv": "0.0.2",
     "graphql-request": "^5.0.0",
-    "jsonwebtoken": "9.0.0",
+    "jsonwebtoken": "9.0.2",
     "moment-timezone": "0.5.45",
     "moment-with-locales-es6": "1.0.1"
   }
